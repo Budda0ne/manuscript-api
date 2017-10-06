@@ -1,11 +1,10 @@
 {
   "name": "manuscript-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight wrapper for the Manuscript API",
   "author": "Nancy Hawa <hawa.nancy@gmail.com>",
   "main": "manuscript.js",
   "scripts": {
-    "start": "node server.js",
     "test": "mocha test/test-manuscript.js"
   },
   "homepage": "https://glitch.com/edit/#!/manuscript-api",
