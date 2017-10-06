@@ -2,40 +2,52 @@
 var rp = require('request-promise-native');
 var urljoin = require('url-join');
 
+module.exports = init; 
+
 function init(site, token) {
   return new Manuscript(site, token).proxify();
 }
 
-var Manuscript = function(site, token) { 
-  Object.assign(this, {token:token, site:site, url: urljoin(site + "/f/api/0/jsonapi")})
-}
-
-Manuscript.prototype.proxify = function () {
-  return new Proxy(this, this.handler)
-};
-
-Manuscript.prototype.handler = {
-  get(target, propKey, receiver) {
-    return function(args) {
-      args = args || {}
-      return target.makeRequest(propKey, args)
-    }
+class Manuscript { 
+  
+  constructor(site, token) {
+    Object.assign(this, {token:token, site:site, url: urljoin(site + "/api/")})
   }
-};
 
-Manuscript.prototype.makeRequest = function (command, options) {
-  Object.assign(options, {token: this.token, cmd: command})
-
-  return rp({method: 'POST', url: this.url, json: options} )
-    .then(function(body){
-      if (body.data) {
-        return Promise.resolve(body.data);
-      } 
-    }).catch(function(err){
-      if (err.error) {
-        return Promise.reject({errors: err.error});
+  proxify() {
+    let handler = { get(target, propKey, receiver) {
+        return function(args) {
+          args = args || {};
+          if (target[propKey]) {
+            return target[propKey](args)
+          }
+          return target.makeRequest(propKey, args)
+        }
       }
-    });
-}
+    }
+    return new Proxy(this, handler)
+  };
+  
+  async isValid() {
+    let response =  await rp({method: 'POST', url: this.url + "logon", json: {token: this.token}} )
 
-module.exports = init; 
+    return response.data.token === this.token
+  }
+
+
+  makeRequest (command, options) {
+    Object.assign(options, {token: this.token})
+
+    return rp({method: 'POST', url: this.url + command, json: options} )
+      .then(function(body){
+        if (body.data) {
+          return Promise.resolve(body.data);
+        } 
+      }).catch(function(err){
+        if (err.error) {
+          return Promise.reject({errors: err.error});
+        }
+    });
+  }
+
+}
