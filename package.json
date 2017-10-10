@@ -5,17 +5,20 @@
   "author": "Nancy Hawa <hawa.nancy@gmail.com>",
   "main": "manuscript.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha test/test-manuscript.js"
   },
   "homepage": "https://glitch.com/edit/#!/manuscript-api",
   "dependencies": {
-    "express": "^4.15.2",
     "request": "^2.81.0",
     "request-promise-native": "^1.0.3",
+    "url-join": "^2.0.1"
+  },
+  "devDependencies": {
+    "express": "^4.15.2",
     "mocha": "^3.3.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "url-join": "^2.0.1",
     "dotenv": "^4.0.0"
   },
   "engines": {

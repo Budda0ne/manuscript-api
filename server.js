@@ -19,11 +19,13 @@ app.get("/", async function (req, res) {
   
   // console.log("xxx")
   // console.log(manuscript.validate())
-  let valid = await manuscript.isValid();
-  console.log(valid)
+  // let valid = await manuscript.isValid();
+  // console.log(valid)
+  
+  // manuscript.someFunction("apple", "banana", "pear")
   
   try {
-    let people = await manuscript.listPeople();
+    let people = await manuscript.viewPerson();
     res.send(people);
   } catch(error) {
     res.send(error);   

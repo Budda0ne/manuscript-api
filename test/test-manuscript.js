@@ -14,7 +14,7 @@ describe('Greatware API', function(){
     
     it('should create a new case', function() {
       var result = mscript.new({sTitle:string}); 
-      return expect(result).to.eventually.have.property('case');
+      return (new Promise (expect(result))).to.eventually.have.property('case');
     });
     
     it('should search for a case by title', function() {
@@ -33,7 +33,6 @@ describe('Greatware API', function(){
       var result = mscript.new({sTitle:string}); 
       return expect(result).to.be.rejected;
     });
-    
   })
 })
 

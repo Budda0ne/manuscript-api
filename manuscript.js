@@ -15,13 +15,15 @@ class Manuscript {
   }
 
   proxify() {
-    let handler = { get(target, propKey, receiver) {
-        return function(args) {
-          args = args || {};
-          if (target[propKey]) {
-            return target[propKey](args)
+    console.log('proxify')
+    let handler = {
+      get(target, property, receiver) {
+        return function() {
+          //args = args || {};
+          if (property in target) {
+            return target[property](...arguments)
           }
-          return target.makeRequest(propKey, args)
+          return target.makeRequest(property, ...arguments)
         }
       }
     }
@@ -29,25 +31,34 @@ class Manuscript {
   };
   
   async isValid() {
-    let response =  await rp({method: 'POST', url: this.url + "logon", json: {token: this.token}} )
+    try {
+      let response =  await rp({
+        method: 'POST', 
+        url: this.url + "logon", 
+        json: {token: this.token}
+      } );
+      return response.data.token === this.token;
 
-    return response.data.token === this.token
+    } catch (err) {
+      return false;
+    }
   }
 
 
-  makeRequest (command, options) {
-    Object.assign(options, {token: this.token})
-
-    return rp({method: 'POST', url: this.url + command, json: options} )
-      .then(function(body){
-        if (body.data) {
-          return Promise.resolve(body.data);
-        } 
-      }).catch(function(err){
-        if (err.error) {
-          return Promise.reject({errors: err.error});
-        }
-    });
+  async makeRequest (command, options = {}) {
+    options.token = this.token;
+    
+    try {
+      let body = await rp({
+        method: 'POST',
+        url: this.url + command,
+        json: options});
+      return body.data;
+    } catch(ex) {
+      let errors = ex.error && ex.error.errors || [];
+      throw {errors: errors};
+    }
   }
-
 }
+
+
