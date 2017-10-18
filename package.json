@@ -1,31 +1,36 @@
 {
   "name": "manuscript-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A lightweight wrapper for the Manuscript API",
   "author": "Nancy Hawa <hawa.nancy@gmail.com>",
   "main": "manuscript.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha test/test-manuscript.js"
+    "test": "nyc mocha --require babel-polyfill --compilers js:babel-register",
+    "testgrep": "mocha --require babel-polyfill --compilers js:babel-register --grep"
   },
-  "homepage": "https://glitch.com/edit/#!/manuscript-api",
+  "homepage": "https://glitch.com/~manuscript-api",
   "dependencies": {
     "request": "^2.81.0",
     "request-promise-native": "^1.0.3",
     "url-join": "^2.0.1"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "chai": "4.1.2",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
-    "mocha": "^3.3.0",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "dotenv": "^4.0.0"
+    "mocha": "4.0.1",
+    "nock": "^9.0.13",
+    "babel-core": "^6.23.0",
+    "babel-register": "*",
+    "babel-polyfill": "^6.26.0",
+    "nyc": "^11.2.1"
   },
   "engines": {
     "node": "7.6.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/manuscript-api"
+    "url": "https://glitch.com/~manuscript-api"
   },
   "license": "MIT",
   "keywords": [

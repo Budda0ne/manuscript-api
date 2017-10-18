@@ -1,0 +1,1234 @@
+{
+  "{\"filename\":\"/app/test/response.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/test\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/test/response.js",
+      "filenameRelative": "/app/test/response.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "response.js",
+      "sourceFileName": "response.js",
+      "sourceRoot": "/app/test",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/test",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "response"
+    },
+    "ignored": false,
+    "code": "module.exports = {\n  errors: [{\n    message: \"404 Account not found\",\n    detail: null,\n    code: null\n  }]\n};\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc3BvbnNlLmpzIl0sIm5hbWVzIjpbIm1vZHVsZSIsImV4cG9ydHMiLCJlcnJvcnMiLCJtZXNzYWdlIiwiZGV0YWlsIiwiY29kZSJdLCJtYXBwaW5ncyI6IkFBQUFBLE9BQU9DLE9BQVAsR0FBaUI7QUFDakJDLFVBQVEsQ0FDUjtBQUNBQyxhQUFTLHVCQURUO0FBRUFDLFlBQVEsSUFGUjtBQUdBQyxVQUFNO0FBSE4sR0FEUTtBQURTLENBQWpCIiwiZmlsZSI6InJlc3BvbnNlLmpzIiwic291cmNlUm9vdCI6Ii9hcHAvdGVzdCIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0geyBcbmVycm9yczogW1xue1xubWVzc2FnZTogXCI0MDQgQWNjb3VudCBub3QgZm91bmRcIixcbmRldGFpbDogbnVsbCxcbmNvZGU6IG51bGxcbn1cbl1cbn07Il19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "response.js"
+      ],
+      "names": [
+        "module",
+        "exports",
+        "errors",
+        "message",
+        "detail",
+        "code"
+      ],
+      "mappings": "AAAAA,OAAOC,OAAP,GAAiB;AACjBC,UAAQ,CACR;AACAC,aAAS,uBADT;AAEAC,YAAQ,IAFR;AAGAC,UAAM;AAHN,GADQ;AADS,CAAjB",
+      "file": "response.js",
+      "sourceRoot": "/app/test",
+      "sourcesContent": [
+        "module.exports = { \nerrors: [\n{\nmessage: \"404 Account not found\",\ndetail: null,\ncode: null\n}\n]\n};"
+      ]
+    },
+    "mtime": 1507645575066
+  },
+  "{\"filename\":\"/app/test/test-manuscript.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/test\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/test/test-manuscript.js",
+      "filenameRelative": "/app/test/test-manuscript.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "test-manuscript.js",
+      "sourceFileName": "test-manuscript.js",
+      "sourceRoot": "/app/test",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/test",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "test-manuscript"
+    },
+    "ignored": false,
+    "code": "/* global it */\n/* global describe */\n/* global beforeEach */\n\nrequire('dotenv').config();\nconst chai = require('chai');\nconst expect = chai.expect;\nconst nock = require('nock');\nconst response = require('./response');\nconst manuscript = require('../manuscript');\n\ndescribe('isValdid', () => {\n\n  beforeEach(() => {\n    nock('https://apisandbox.fogbugz.com').post('/logon', {\n      token: \"nosuchtoken\"\n    }).reply(400, response);\n  });\n\n  // it('Returns false ', () => {\n  //   console.log('test return false')\n  //   let mAPI = manuscript('https://apisandbox.fogbugz.com', \"nosuchtoken\")\n  //   mAPI.isValid()\n  //     .then(response => {\n  //       //expect an object back\n  //       expect(response).to.be.false\n  //     });\n  // });\n});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlc3QtbWFudXNjcmlwdC5qcyJdLCJuYW1lcyI6WyJyZXF1aXJlIiwiY29uZmlnIiwiY2hhaSIsImV4cGVjdCIsIm5vY2siLCJyZXNwb25zZSIsIm1hbnVzY3JpcHQiLCJkZXNjcmliZSIsImJlZm9yZUVhY2giLCJwb3N0IiwidG9rZW4iLCJyZXBseSJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBOztBQUVBQSxRQUFRLFFBQVIsRUFBa0JDLE1BQWxCO0FBQ0EsTUFBTUMsT0FBT0YsUUFBUSxNQUFSLENBQWI7QUFDQSxNQUFNRyxTQUFTRCxLQUFLQyxNQUFwQjtBQUNBLE1BQU1DLE9BQU9KLFFBQVEsTUFBUixDQUFiO0FBQ0EsTUFBTUssV0FBV0wsUUFBUSxZQUFSLENBQWpCO0FBQ0EsTUFBTU0sYUFBYU4sUUFBUSxlQUFSLENBQW5COztBQUlBTyxTQUFTLFVBQVQsRUFBcUIsTUFBTTs7QUFFekJDLGFBQVcsTUFBTTtBQUNmSixTQUFLLGdDQUFMLEVBQ0dLLElBREgsQ0FDUSxRQURSLEVBQ2tCO0FBQ2RDLGFBQU87QUFETyxLQURsQixFQUlHQyxLQUpILENBSVMsR0FKVCxFQUljTixRQUpkO0FBS0QsR0FORDs7QUFRQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDRCxDQW5CRCIsImZpbGUiOiJ0ZXN0LW1hbnVzY3JpcHQuanMiLCJzb3VyY2VSb290IjoiL2FwcC90ZXN0Iiwic291cmNlc0NvbnRlbnQiOlsiLyogZ2xvYmFsIGl0ICovXG4vKiBnbG9iYWwgZGVzY3JpYmUgKi9cbi8qIGdsb2JhbCBiZWZvcmVFYWNoICovXG5cbnJlcXVpcmUoJ2RvdGVudicpLmNvbmZpZygpO1xuY29uc3QgY2hhaSA9IHJlcXVpcmUoJ2NoYWknKTtcbmNvbnN0IGV4cGVjdCA9IGNoYWkuZXhwZWN0O1xuY29uc3Qgbm9jayA9IHJlcXVpcmUoJ25vY2snKTtcbmNvbnN0IHJlc3BvbnNlID0gcmVxdWlyZSgnLi9yZXNwb25zZScpO1xuY29uc3QgbWFudXNjcmlwdCA9IHJlcXVpcmUoJy4uL21hbnVzY3JpcHQnKVxuXG5cblxuZGVzY3JpYmUoJ2lzVmFsZGlkJywgKCkgPT4ge1xuICBcbiAgYmVmb3JlRWFjaCgoKSA9PiB7XG4gICAgbm9jaygnaHR0cHM6Ly9hcGlzYW5kYm94LmZvZ2J1Z3ouY29tJylcbiAgICAgIC5wb3N0KCcvbG9nb24nLCB7XG4gICAgICAgIHRva2VuOiBcIm5vc3VjaHRva2VuXCJcbiAgICAgIH0pXG4gICAgICAucmVwbHkoNDAwLCByZXNwb25zZSk7XG4gIH0pO1xuXG4gIC8vIGl0KCdSZXR1cm5zIGZhbHNlICcsICgpID0+IHtcbiAgLy8gICBjb25zb2xlLmxvZygndGVzdCByZXR1cm4gZmFsc2UnKVxuICAvLyAgIGxldCBtQVBJID0gbWFudXNjcmlwdCgnaHR0cHM6Ly9hcGlzYW5kYm94LmZvZ2J1Z3ouY29tJywgXCJub3N1Y2h0b2tlblwiKVxuICAvLyAgIG1BUEkuaXNWYWxpZCgpXG4gIC8vICAgICAudGhlbihyZXNwb25zZSA9PiB7XG4gIC8vICAgICAgIC8vZXhwZWN0IGFuIG9iamVjdCBiYWNrXG4gIC8vICAgICAgIGV4cGVjdChyZXNwb25zZSkudG8uYmUuZmFsc2VcbiAgLy8gICAgIH0pO1xuICAvLyB9KTtcbn0pO1xuXG5cblxuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "test-manuscript.js"
+      ],
+      "names": [
+        "require",
+        "config",
+        "chai",
+        "expect",
+        "nock",
+        "response",
+        "manuscript",
+        "describe",
+        "beforeEach",
+        "post",
+        "token",
+        "reply"
+      ],
+      "mappings": "AAAA;AACA;AACA;;AAEAA,QAAQ,QAAR,EAAkBC,MAAlB;AACA,MAAMC,OAAOF,QAAQ,MAAR,CAAb;AACA,MAAMG,SAASD,KAAKC,MAApB;AACA,MAAMC,OAAOJ,QAAQ,MAAR,CAAb;AACA,MAAMK,WAAWL,QAAQ,YAAR,CAAjB;AACA,MAAMM,aAAaN,QAAQ,eAAR,CAAnB;;AAIAO,SAAS,UAAT,EAAqB,MAAM;;AAEzBC,aAAW,MAAM;AACfJ,SAAK,gCAAL,EACGK,IADH,CACQ,QADR,EACkB;AACdC,aAAO;AADO,KADlB,EAIGC,KAJH,CAIS,GAJT,EAIcN,QAJd;AAKD,GAND;;AAQA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACD,CAnBD",
+      "file": "test-manuscript.js",
+      "sourceRoot": "/app/test",
+      "sourcesContent": [
+        "/* global it */\n/* global describe */\n/* global beforeEach */\n\nrequire('dotenv').config();\nconst chai = require('chai');\nconst expect = chai.expect;\nconst nock = require('nock');\nconst response = require('./response');\nconst manuscript = require('../manuscript')\n\n\n\ndescribe('isValdid', () => {\n  \n  beforeEach(() => {\n    nock('https://apisandbox.fogbugz.com')\n      .post('/logon', {\n        token: \"nosuchtoken\"\n      })\n      .reply(400, response);\n  });\n\n  // it('Returns false ', () => {\n  //   console.log('test return false')\n  //   let mAPI = manuscript('https://apisandbox.fogbugz.com', \"nosuchtoken\")\n  //   mAPI.isValid()\n  //     .then(response => {\n  //       //expect an object back\n  //       expect(response).to.be.false\n  //     });\n  // });\n});\n\n\n\n"
+      ]
+    },
+    "mtime": 1507646605714
+  },
+  "{\"filename\":\"/app/manuscript.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/manuscript.js",
+      "filenameRelative": "/app/manuscript.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "manuscript.js",
+      "sourceFileName": "manuscript.js",
+      "sourceRoot": "/app",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "manuscript"
+    },
+    "ignored": false,
+    "code": "/* global Proxy */\nvar rp = require('request-promise-native');\nvar urljoin = require('url-join');\n\nmodule.exports = init;\n\nfunction init(site, token) {\n  return new Manuscript(site, token).proxify();\n}\n\nclass Manuscript {\n\n  constructor(site, token) {\n    Object.assign(this, { token: token, site: site, url: urljoin(site + \"/api/\") });\n  }\n\n  proxify() {\n    console.log('proxify');\n    let handler = {\n      get(target, property, receiver) {\n        return function () {\n          //args = args || {};\n          if (property in target) {\n            return target[property](...arguments);\n          }\n          return target.makeRequest(property, ...arguments);\n        };\n      }\n    };\n    return new Proxy(this, handler);\n  }\n\n  async isValid() {\n    try {\n      let response = await rp({\n        method: 'POST',\n        url: this.url + \"logon\",\n        json: { token: this.token }\n      });\n      return response.data.token === this.token;\n    } catch (err) {\n      return false;\n    }\n  }\n\n  async makeRequest(command, options = {}) {\n    options.token = this.token;\n\n    try {\n      let body = await rp({\n        method: 'POST',\n        url: this.url + command,\n        json: options });\n      return body.data;\n    } catch (ex) {\n      let errors = ex.error && ex.error.errors || [];\n      throw { errors: errors };\n    }\n  }\n}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hbnVzY3JpcHQuanMiXSwibmFtZXMiOlsicnAiLCJyZXF1aXJlIiwidXJsam9pbiIsIm1vZHVsZSIsImV4cG9ydHMiLCJpbml0Iiwic2l0ZSIsInRva2VuIiwiTWFudXNjcmlwdCIsInByb3hpZnkiLCJjb25zdHJ1Y3RvciIsIk9iamVjdCIsImFzc2lnbiIsInVybCIsImNvbnNvbGUiLCJsb2ciLCJoYW5kbGVyIiwiZ2V0IiwidGFyZ2V0IiwicHJvcGVydHkiLCJyZWNlaXZlciIsImFyZ3VtZW50cyIsIm1ha2VSZXF1ZXN0IiwiUHJveHkiLCJpc1ZhbGlkIiwicmVzcG9uc2UiLCJtZXRob2QiLCJqc29uIiwiZGF0YSIsImVyciIsImNvbW1hbmQiLCJvcHRpb25zIiwiYm9keSIsImV4IiwiZXJyb3JzIiwiZXJyb3IiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0EsSUFBSUEsS0FBS0MsUUFBUSx3QkFBUixDQUFUO0FBQ0EsSUFBSUMsVUFBVUQsUUFBUSxVQUFSLENBQWQ7O0FBRUFFLE9BQU9DLE9BQVAsR0FBaUJDLElBQWpCOztBQUVBLFNBQVNBLElBQVQsQ0FBY0MsSUFBZCxFQUFvQkMsS0FBcEIsRUFBMkI7QUFDekIsU0FBTyxJQUFJQyxVQUFKLENBQWVGLElBQWYsRUFBcUJDLEtBQXJCLEVBQTRCRSxPQUE1QixFQUFQO0FBQ0Q7O0FBRUQsTUFBTUQsVUFBTixDQUFpQjs7QUFFZkUsY0FBWUosSUFBWixFQUFrQkMsS0FBbEIsRUFBeUI7QUFDdkJJLFdBQU9DLE1BQVAsQ0FBYyxJQUFkLEVBQW9CLEVBQUNMLE9BQU1BLEtBQVAsRUFBY0QsTUFBS0EsSUFBbkIsRUFBeUJPLEtBQUtYLFFBQVFJLE9BQU8sT0FBZixDQUE5QixFQUFwQjtBQUNEOztBQUVERyxZQUFVO0FBQ1JLLFlBQVFDLEdBQVIsQ0FBWSxTQUFaO0FBQ0EsUUFBSUMsVUFBVTtBQUNaQyxVQUFJQyxNQUFKLEVBQVlDLFFBQVosRUFBc0JDLFFBQXRCLEVBQWdDO0FBQzlCLGVBQU8sWUFBVztBQUNoQjtBQUNBLGNBQUlELFlBQVlELE1BQWhCLEVBQXdCO0FBQ3RCLG1CQUFPQSxPQUFPQyxRQUFQLEVBQWlCLEdBQUdFLFNBQXBCLENBQVA7QUFDRDtBQUNELGlCQUFPSCxPQUFPSSxXQUFQLENBQW1CSCxRQUFuQixFQUE2QixHQUFHRSxTQUFoQyxDQUFQO0FBQ0QsU0FORDtBQU9EO0FBVFcsS0FBZDtBQVdBLFdBQU8sSUFBSUUsS0FBSixDQUFVLElBQVYsRUFBZ0JQLE9BQWhCLENBQVA7QUFDRDs7QUFFRCxRQUFNUSxPQUFOLEdBQWdCO0FBQ2QsUUFBSTtBQUNGLFVBQUlDLFdBQVksTUFBTXpCLEdBQUc7QUFDdkIwQixnQkFBUSxNQURlO0FBRXZCYixhQUFLLEtBQUtBLEdBQUwsR0FBVyxPQUZPO0FBR3ZCYyxjQUFNLEVBQUNwQixPQUFPLEtBQUtBLEtBQWI7QUFIaUIsT0FBSCxDQUF0QjtBQUtBLGFBQU9rQixTQUFTRyxJQUFULENBQWNyQixLQUFkLEtBQXdCLEtBQUtBLEtBQXBDO0FBRUQsS0FSRCxDQVFFLE9BQU9zQixHQUFQLEVBQVk7QUFDWixhQUFPLEtBQVA7QUFDRDtBQUNGOztBQUdELFFBQU1QLFdBQU4sQ0FBbUJRLE9BQW5CLEVBQTRCQyxVQUFVLEVBQXRDLEVBQTBDO0FBQ3hDQSxZQUFReEIsS0FBUixHQUFnQixLQUFLQSxLQUFyQjs7QUFFQSxRQUFJO0FBQ0YsVUFBSXlCLE9BQU8sTUFBTWhDLEdBQUc7QUFDbEIwQixnQkFBUSxNQURVO0FBRWxCYixhQUFLLEtBQUtBLEdBQUwsR0FBV2lCLE9BRkU7QUFHbEJILGNBQU1JLE9BSFksRUFBSCxDQUFqQjtBQUlBLGFBQU9DLEtBQUtKLElBQVo7QUFDRCxLQU5ELENBTUUsT0FBTUssRUFBTixFQUFVO0FBQ1YsVUFBSUMsU0FBU0QsR0FBR0UsS0FBSCxJQUFZRixHQUFHRSxLQUFILENBQVNELE1BQXJCLElBQStCLEVBQTVDO0FBQ0EsWUFBTSxFQUFDQSxRQUFRQSxNQUFULEVBQU47QUFDRDtBQUNGO0FBbERjIiwiZmlsZSI6Im1hbnVzY3JpcHQuanMiLCJzb3VyY2VSb290IjoiL2FwcCIsInNvdXJjZXNDb250ZW50IjpbIi8qIGdsb2JhbCBQcm94eSAqL1xudmFyIHJwID0gcmVxdWlyZSgncmVxdWVzdC1wcm9taXNlLW5hdGl2ZScpO1xudmFyIHVybGpvaW4gPSByZXF1aXJlKCd1cmwtam9pbicpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IGluaXQ7IFxuXG5mdW5jdGlvbiBpbml0KHNpdGUsIHRva2VuKSB7XG4gIHJldHVybiBuZXcgTWFudXNjcmlwdChzaXRlLCB0b2tlbikucHJveGlmeSgpO1xufVxuXG5jbGFzcyBNYW51c2NyaXB0IHsgXG4gIFxuICBjb25zdHJ1Y3RvcihzaXRlLCB0b2tlbikge1xuICAgIE9iamVjdC5hc3NpZ24odGhpcywge3Rva2VuOnRva2VuLCBzaXRlOnNpdGUsIHVybDogdXJsam9pbihzaXRlICsgXCIvYXBpL1wiKX0pXG4gIH1cblxuICBwcm94aWZ5KCkge1xuICAgIGNvbnNvbGUubG9nKCdwcm94aWZ5JylcbiAgICBsZXQgaGFuZGxlciA9IHtcbiAgICAgIGdldCh0YXJnZXQsIHByb3BlcnR5LCByZWNlaXZlcikge1xuICAgICAgICByZXR1cm4gZnVuY3Rpb24oKSB7XG4gICAgICAgICAgLy9hcmdzID0gYXJncyB8fCB7fTtcbiAgICAgICAgICBpZiAocHJvcGVydHkgaW4gdGFyZ2V0KSB7XG4gICAgICAgICAgICByZXR1cm4gdGFyZ2V0W3Byb3BlcnR5XSguLi5hcmd1bWVudHMpXG4gICAgICAgICAgfVxuICAgICAgICAgIHJldHVybiB0YXJnZXQubWFrZVJlcXVlc3QocHJvcGVydHksIC4uLmFyZ3VtZW50cylcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgICByZXR1cm4gbmV3IFByb3h5KHRoaXMsIGhhbmRsZXIpXG4gIH07XG4gIFxuICBhc3luYyBpc1ZhbGlkKCkge1xuICAgIHRyeSB7XG4gICAgICBsZXQgcmVzcG9uc2UgPSAgYXdhaXQgcnAoe1xuICAgICAgICBtZXRob2Q6ICdQT1NUJywgXG4gICAgICAgIHVybDogdGhpcy51cmwgKyBcImxvZ29uXCIsIFxuICAgICAgICBqc29uOiB7dG9rZW46IHRoaXMudG9rZW59XG4gICAgICB9ICk7XG4gICAgICByZXR1cm4gcmVzcG9uc2UuZGF0YS50b2tlbiA9PT0gdGhpcy50b2tlbjtcblxuICAgIH0gY2F0Y2ggKGVycikge1xuICAgICAgcmV0dXJuIGZhbHNlO1xuICAgIH1cbiAgfVxuXG5cbiAgYXN5bmMgbWFrZVJlcXVlc3QgKGNvbW1hbmQsIG9wdGlvbnMgPSB7fSkge1xuICAgIG9wdGlvbnMudG9rZW4gPSB0aGlzLnRva2VuO1xuICAgIFxuICAgIHRyeSB7XG4gICAgICBsZXQgYm9keSA9IGF3YWl0IHJwKHtcbiAgICAgICAgbWV0aG9kOiAnUE9TVCcsXG4gICAgICAgIHVybDogdGhpcy51cmwgKyBjb21tYW5kLFxuICAgICAgICBqc29uOiBvcHRpb25zfSk7XG4gICAgICByZXR1cm4gYm9keS5kYXRhO1xuICAgIH0gY2F0Y2goZXgpIHtcbiAgICAgIGxldCBlcnJvcnMgPSBleC5lcnJvciAmJiBleC5lcnJvci5lcnJvcnMgfHwgW107XG4gICAgICB0aHJvdyB7ZXJyb3JzOiBlcnJvcnN9O1xuICAgIH1cbiAgfVxufVxuXG5cbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "manuscript.js"
+      ],
+      "names": [
+        "rp",
+        "require",
+        "urljoin",
+        "module",
+        "exports",
+        "init",
+        "site",
+        "token",
+        "Manuscript",
+        "proxify",
+        "constructor",
+        "Object",
+        "assign",
+        "url",
+        "console",
+        "log",
+        "handler",
+        "get",
+        "target",
+        "property",
+        "receiver",
+        "arguments",
+        "makeRequest",
+        "Proxy",
+        "isValid",
+        "response",
+        "method",
+        "json",
+        "data",
+        "err",
+        "command",
+        "options",
+        "body",
+        "ex",
+        "errors",
+        "error"
+      ],
+      "mappings": "AAAA;AACA,IAAIA,KAAKC,QAAQ,wBAAR,CAAT;AACA,IAAIC,UAAUD,QAAQ,UAAR,CAAd;;AAEAE,OAAOC,OAAP,GAAiBC,IAAjB;;AAEA,SAASA,IAAT,CAAcC,IAAd,EAAoBC,KAApB,EAA2B;AACzB,SAAO,IAAIC,UAAJ,CAAeF,IAAf,EAAqBC,KAArB,EAA4BE,OAA5B,EAAP;AACD;;AAED,MAAMD,UAAN,CAAiB;;AAEfE,cAAYJ,IAAZ,EAAkBC,KAAlB,EAAyB;AACvBI,WAAOC,MAAP,CAAc,IAAd,EAAoB,EAACL,OAAMA,KAAP,EAAcD,MAAKA,IAAnB,EAAyBO,KAAKX,QAAQI,OAAO,OAAf,CAA9B,EAApB;AACD;;AAEDG,YAAU;AACRK,YAAQC,GAAR,CAAY,SAAZ;AACA,QAAIC,UAAU;AACZC,UAAIC,MAAJ,EAAYC,QAAZ,EAAsBC,QAAtB,EAAgC;AAC9B,eAAO,YAAW;AAChB;AACA,cAAID,YAAYD,MAAhB,EAAwB;AACtB,mBAAOA,OAAOC,QAAP,EAAiB,GAAGE,SAApB,CAAP;AACD;AACD,iBAAOH,OAAOI,WAAP,CAAmBH,QAAnB,EAA6B,GAAGE,SAAhC,CAAP;AACD,SAND;AAOD;AATW,KAAd;AAWA,WAAO,IAAIE,KAAJ,CAAU,IAAV,EAAgBP,OAAhB,CAAP;AACD;;AAED,QAAMQ,OAAN,GAAgB;AACd,QAAI;AACF,UAAIC,WAAY,MAAMzB,GAAG;AACvB0B,gBAAQ,MADe;AAEvBb,aAAK,KAAKA,GAAL,GAAW,OAFO;AAGvBc,cAAM,EAACpB,OAAO,KAAKA,KAAb;AAHiB,OAAH,CAAtB;AAKA,aAAOkB,SAASG,IAAT,CAAcrB,KAAd,KAAwB,KAAKA,KAApC;AAED,KARD,CAQE,OAAOsB,GAAP,EAAY;AACZ,aAAO,KAAP;AACD;AACF;;AAGD,QAAMP,WAAN,CAAmBQ,OAAnB,EAA4BC,UAAU,EAAtC,EAA0C;AACxCA,YAAQxB,KAAR,GAAgB,KAAKA,KAArB;;AAEA,QAAI;AACF,UAAIyB,OAAO,MAAMhC,GAAG;AAClB0B,gBAAQ,MADU;AAElBb,aAAK,KAAKA,GAAL,GAAWiB,OAFE;AAGlBH,cAAMI,OAHY,EAAH,CAAjB;AAIA,aAAOC,KAAKJ,IAAZ;AACD,KAND,CAME,OAAMK,EAAN,EAAU;AACV,UAAIC,SAASD,GAAGE,KAAH,IAAYF,GAAGE,KAAH,CAASD,MAArB,IAA+B,EAA5C;AACA,YAAM,EAACA,QAAQA,MAAT,EAAN;AACD;AACF;AAlDc",
+      "file": "manuscript.js",
+      "sourceRoot": "/app",
+      "sourcesContent": [
+        "/* global Proxy */\nvar rp = require('request-promise-native');\nvar urljoin = require('url-join');\n\nmodule.exports = init; \n\nfunction init(site, token) {\n  return new Manuscript(site, token).proxify();\n}\n\nclass Manuscript { \n  \n  constructor(site, token) {\n    Object.assign(this, {token:token, site:site, url: urljoin(site + \"/api/\")})\n  }\n\n  proxify() {\n    console.log('proxify')\n    let handler = {\n      get(target, property, receiver) {\n        return function() {\n          //args = args || {};\n          if (property in target) {\n            return target[property](...arguments)\n          }\n          return target.makeRequest(property, ...arguments)\n        }\n      }\n    }\n    return new Proxy(this, handler)\n  };\n  \n  async isValid() {\n    try {\n      let response =  await rp({\n        method: 'POST', \n        url: this.url + \"logon\", \n        json: {token: this.token}\n      } );\n      return response.data.token === this.token;\n\n    } catch (err) {\n      return false;\n    }\n  }\n\n\n  async makeRequest (command, options = {}) {\n    options.token = this.token;\n    \n    try {\n      let body = await rp({\n        method: 'POST',\n        url: this.url + command,\n        json: options});\n      return body.data;\n    } catch(ex) {\n      let errors = ex.error && ex.error.errors || [];\n      throw {errors: errors};\n    }\n  }\n}\n\n\n"
+      ]
+    },
+    "mtime": 1507645575050
+  },
+  "{\"filename\":\"/app/test/response.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/test\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/test/response.js",
+      "filenameRelative": "/app/test/response.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "response.js",
+      "sourceFileName": "response.js",
+      "sourceRoot": "/app/test",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/test",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "response"
+    },
+    "ignored": false,
+    "code": "\"use strict\";\n\nmodule.exports = {\n  logonInvalidToken: logonInvalidToken,\n  logonValidToken: logonValidToken\n};\n\nvar logonInvalidToken = { \"data\": {}, \"errors\": [{ \"message\": \"Error 3: Not logged in\", \"detail\": null, \"code\": \"3\" }], \"warnings\": [], \"meta\": { \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\", \"clientVersionAllowed\": { \"min\": 5, \"max\": 5 } }, \"errorCode\": 400, \"maxCacheAge\": null };\n\nvar logonValidToken = {\n  \"data\": { \"token\": \"validtoken\" },\n  \"errors\": [],\n  \"warnings\": [],\n  \"meta\": {\n    \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n    \"clientVersionAllowed\": { \"min\": 5, \"max\": 5 }\n  },\n  \"errorCode\": null,\n  \"maxCacheAge\": null\n};\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc3BvbnNlLmpzIl0sIm5hbWVzIjpbIm1vZHVsZSIsImV4cG9ydHMiLCJsb2dvbkludmFsaWRUb2tlbiIsImxvZ29uVmFsaWRUb2tlbiJdLCJtYXBwaW5ncyI6Ijs7QUFBQUEsT0FBT0MsT0FBUCxHQUFpQjtBQUNmQyxxQkFBbUJBLGlCQURKO0FBRWZDLG1CQUFpQkE7QUFGRixDQUFqQjs7QUFLQSxJQUFJRCxvQkFBb0IsRUFBQyxRQUFPLEVBQVIsRUFBVyxVQUFTLENBQUMsRUFBQyxXQUFVLHdCQUFYLEVBQW9DLFVBQVMsSUFBN0MsRUFBa0QsUUFBTyxHQUF6RCxFQUFELENBQXBCLEVBQW9GLFlBQVcsRUFBL0YsRUFBa0csUUFBTyxFQUFDLG1CQUFrQix5QkFBbkIsRUFBNkMsd0JBQXVCLEVBQUMsT0FBTSxDQUFQLEVBQVMsT0FBTSxDQUFmLEVBQXBFLEVBQXpHLEVBQWdNLGFBQVksR0FBNU0sRUFBZ04sZUFBYyxJQUE5TixFQUF4Qjs7QUFFQSxJQUFJQyxrQkFBa0I7QUFDcEIsVUFBUSxFQUFDLFNBQVEsWUFBVCxFQURZO0FBRXBCLFlBQVMsRUFGVztBQUdwQixjQUFXLEVBSFM7QUFJcEIsVUFBUTtBQUNOLHVCQUFrQix5QkFEWjtBQUVOLDRCQUF1QixFQUFDLE9BQU0sQ0FBUCxFQUFTLE9BQU0sQ0FBZjtBQUZqQixHQUpZO0FBUXBCLGVBQVksSUFSUTtBQVNwQixpQkFBYztBQVRNLENBQXRCIiwiZmlsZSI6InJlc3BvbnNlLmpzIiwic291cmNlUm9vdCI6Ii9hcHAvdGVzdCIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0ge1xuICBsb2dvbkludmFsaWRUb2tlbjogbG9nb25JbnZhbGlkVG9rZW4sXG4gIGxvZ29uVmFsaWRUb2tlbjogbG9nb25WYWxpZFRva2VuLFxufTtcblxubGV0IGxvZ29uSW52YWxpZFRva2VuID0ge1wiZGF0YVwiOnt9LFwiZXJyb3JzXCI6W3tcIm1lc3NhZ2VcIjpcIkVycm9yIDM6IE5vdCBsb2dnZWQgaW5cIixcImRldGFpbFwiOm51bGwsXCJjb2RlXCI6XCIzXCJ9XSxcIndhcm5pbmdzXCI6W10sXCJtZXRhXCI6e1wianNkYkludmFsaWRhdG9yXCI6XCJwMExMd2ZLM0lrT0V5aXNWRDhpRzFBMlwiLFwiY2xpZW50VmVyc2lvbkFsbG93ZWRcIjp7XCJtaW5cIjo1LFwibWF4XCI6NX19LFwiZXJyb3JDb2RlXCI6NDAwLFwibWF4Q2FjaGVBZ2VcIjpudWxsfVxuXG5sZXQgbG9nb25WYWxpZFRva2VuID0ge1xuICBcImRhdGFcIjoge1widG9rZW5cIjpcInZhbGlkdG9rZW5cIn0sXG4gIFwiZXJyb3JzXCI6W10sXG4gIFwid2FybmluZ3NcIjpbXSxcbiAgXCJtZXRhXCI6IHtcbiAgICBcImpzZGJJbnZhbGlkYXRvclwiOlwicDBMTHdmSzNJa09FeWlzVkQ4aUcxQTJcIixcbiAgICBcImNsaWVudFZlcnNpb25BbGxvd2VkXCI6e1wibWluXCI6NSxcIm1heFwiOjV9XG4gIH0sXG4gIFwiZXJyb3JDb2RlXCI6bnVsbCxcbiAgXCJtYXhDYWNoZUFnZVwiOm51bGxcbn0iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "response.js"
+      ],
+      "names": [
+        "module",
+        "exports",
+        "logonInvalidToken",
+        "logonValidToken"
+      ],
+      "mappings": ";;AAAAA,OAAOC,OAAP,GAAiB;AACfC,qBAAmBA,iBADJ;AAEfC,mBAAiBA;AAFF,CAAjB;;AAKA,IAAID,oBAAoB,EAAC,QAAO,EAAR,EAAW,UAAS,CAAC,EAAC,WAAU,wBAAX,EAAoC,UAAS,IAA7C,EAAkD,QAAO,GAAzD,EAAD,CAApB,EAAoF,YAAW,EAA/F,EAAkG,QAAO,EAAC,mBAAkB,yBAAnB,EAA6C,wBAAuB,EAAC,OAAM,CAAP,EAAS,OAAM,CAAf,EAApE,EAAzG,EAAgM,aAAY,GAA5M,EAAgN,eAAc,IAA9N,EAAxB;;AAEA,IAAIC,kBAAkB;AACpB,UAAQ,EAAC,SAAQ,YAAT,EADY;AAEpB,YAAS,EAFW;AAGpB,cAAW,EAHS;AAIpB,UAAQ;AACN,uBAAkB,yBADZ;AAEN,4BAAuB,EAAC,OAAM,CAAP,EAAS,OAAM,CAAf;AAFjB,GAJY;AAQpB,eAAY,IARQ;AASpB,iBAAc;AATM,CAAtB",
+      "file": "response.js",
+      "sourceRoot": "/app/test",
+      "sourcesContent": [
+        "module.exports = {\n  logonInvalidToken: logonInvalidToken,\n  logonValidToken: logonValidToken,\n};\n\nlet logonInvalidToken = {\"data\":{},\"errors\":[{\"message\":\"Error 3: Not logged in\",\"detail\":null,\"code\":\"3\"}],\"warnings\":[],\"meta\":{\"jsdbInvalidator\":\"p0LLwfK3IkOEyisVD8iG1A2\",\"clientVersionAllowed\":{\"min\":5,\"max\":5}},\"errorCode\":400,\"maxCacheAge\":null}\n\nlet logonValidToken = {\n  \"data\": {\"token\":\"validtoken\"},\n  \"errors\":[],\n  \"warnings\":[],\n  \"meta\": {\n    \"jsdbInvalidator\":\"p0LLwfK3IkOEyisVD8iG1A2\",\n    \"clientVersionAllowed\":{\"min\":5,\"max\":5}\n  },\n  \"errorCode\":null,\n  \"maxCacheAge\":null\n}"
+      ]
+    },
+    "mtime": 1507752737376
+  },
+  "{\"filename\":\"/app/test/test-manuscript.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/test\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "asyncToGenerator"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/test/test-manuscript.js",
+      "filenameRelative": "/app/test/test-manuscript.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "test-manuscript.js",
+      "sourceFileName": "test-manuscript.js",
+      "sourceRoot": "/app/test",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/test",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "test-manuscript"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\n/* global it */\n/* global describe */\n/* global beforeEach */\n/* global afterEach */\n\nrequire('dotenv').config();\nvar chai = require('chai');\nvar expect = chai.expect;\nvar nock = require('nock');\nvar response = require('./mock-response');\n\nvar logonValidToken = {\n  \"data\": { \"token\": \"validtoken\" },\n  \"errors\": [],\n  \"warnings\": [],\n  \"meta\": {\n    \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n    \"clientVersionAllowed\": { \"min\": 5, \"max\": 5 }\n  },\n  \"errorCode\": null,\n  \"maxCacheAge\": null\n};\n\ndescribe(\"REQUIRE MANUSCRIPT\", function () {\n  it(\"Require Manuscript: Returns a function when instantiated without parameters\", function () {\n    var manuscript = require('../manuscript');\n    expect(manuscript).to.be.a(\"function\");\n  });\n\n  it(\"Require Manuscript: Returns an object when instantiated with params\", function () {\n    var manuscript = require('../manuscript')(\"http://www.example.com\", \"faketoken\");\n    expect(manuscript).to.be.an('object');\n  });\n});\n\nvar apiEndpoint = 'https://www.example.com/';\nnock.disableNetConnect();\n\ndescribe('Function manuscript.isValid()', function () {\n  var manuscript = require('../manuscript');\n  beforeEach(function () {\n    nock(apiEndpoint + 'api').post('/logon', JSON.stringify({ token: \"nosuchtoken\" })).reply(400, response.logonInvalidToken);\n\n    nock(apiEndpoint + 'api').post('/logon', JSON.stringify({ token: \"validtoken\" })).reply(200, logonValidToken);\n  });\n\n  it('Returns false given an invalid token', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n    var mAPI, result;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            mAPI = manuscript(apiEndpoint, \"nosuchtoken\");\n            _context.next = 3;\n            return mAPI.isValid();\n\n          case 3:\n            result = _context.sent;\n\n            expect(result).to.be.false;\n\n          case 5:\n          case 'end':\n            return _context.stop();\n        }\n      }\n    }, _callee, undefined);\n  })));\n\n  it('Returns true given an valid token', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {\n    var mAPI, result;\n    return regeneratorRuntime.wrap(function _callee2$(_context2) {\n      while (1) {\n        switch (_context2.prev = _context2.next) {\n          case 0:\n            mAPI = manuscript(apiEndpoint, \"validtoken\");\n            _context2.next = 3;\n            return mAPI.isValid();\n\n          case 3:\n            result = _context2.sent;\n\n            expect(result).to.be.true;\n\n          case 5:\n          case 'end':\n            return _context2.stop();\n        }\n      }\n    }, _callee2, undefined);\n  })));\n\n  afterEach(function () {\n    nock.cleanAll();\n  });\n});\n\ndescribe('Calling Manuscript API', function () {\n  var manuscript = require('../manuscript');\n  beforeEach(function () {\n    nock.disableNetConnect();\n\n    nock(apiEndpoint + 'api').post('/new', JSON.stringify({ \"token\": \"validtoken\", \"sTitle\": \"New Case Through API\" })).reply(200, response.new);\n\n    nock(apiEndpoint + 'api').post('/nosuchcommand', JSON.stringify({ token: \"validtoken\" })).reply(400, response.noSuchCommand);\n  });\n\n  it('Returns a new case given valid data', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {\n    var mAPI, result;\n    return regeneratorRuntime.wrap(function _callee3$(_context3) {\n      while (1) {\n        switch (_context3.prev = _context3.next) {\n          case 0:\n            mAPI = manuscript(apiEndpoint, \"validtoken\");\n            _context3.next = 3;\n            return mAPI.new({ \"token\": \"validtoken\", \"sTitle\": \"New Case Through API\" });\n\n          case 3:\n            result = _context3.sent;\n\n            expect(result).to.have.property('case');\n\n          case 5:\n          case 'end':\n            return _context3.stop();\n        }\n      }\n    }, _callee3, undefined);\n  })));\n\n  it('Throws an error given an invalid endpoint', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {\n    var mAPI, result;\n    return regeneratorRuntime.wrap(function _callee4$(_context4) {\n      while (1) {\n        switch (_context4.prev = _context4.next) {\n          case 0:\n            mAPI = manuscript(apiEndpoint, \"validtoken\");\n            _context4.prev = 1;\n            _context4.next = 4;\n            return mAPI.nosuchcommand();\n\n          case 4:\n            result = _context4.sent;\n            _context4.next = 11;\n            break;\n\n          case 7:\n            _context4.prev = 7;\n            _context4.t0 = _context4['catch'](1);\n\n            expect(_context4.t0).to.have.property('errors');\n            expect(_context4.t0.errors[0].message.includes('No such API command')).to.be.true;\n\n          case 11:\n          case 'end':\n            return _context4.stop();\n        }\n      }\n    }, _callee4, undefined, [[1, 7]]);\n  })));\n\n  afterEach(function () {\n    nock.cleanAll();\n  });\n});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlc3QtbWFudXNjcmlwdC5qcyJdLCJuYW1lcyI6WyJyZXF1aXJlIiwiY29uZmlnIiwiY2hhaSIsImV4cGVjdCIsIm5vY2siLCJyZXNwb25zZSIsImxvZ29uVmFsaWRUb2tlbiIsImRlc2NyaWJlIiwiaXQiLCJtYW51c2NyaXB0IiwidG8iLCJiZSIsImEiLCJhbiIsImFwaUVuZHBvaW50IiwiZGlzYWJsZU5ldENvbm5lY3QiLCJiZWZvcmVFYWNoIiwicG9zdCIsIkpTT04iLCJzdHJpbmdpZnkiLCJ0b2tlbiIsInJlcGx5IiwibG9nb25JbnZhbGlkVG9rZW4iLCJtQVBJIiwiaXNWYWxpZCIsInJlc3VsdCIsImZhbHNlIiwidHJ1ZSIsImFmdGVyRWFjaCIsImNsZWFuQWxsIiwibmV3Iiwibm9TdWNoQ29tbWFuZCIsImhhdmUiLCJwcm9wZXJ0eSIsIm5vc3VjaGNvbW1hbmQiLCJlcnJvcnMiLCJtZXNzYWdlIiwiaW5jbHVkZXMiXSwibWFwcGluZ3MiOiI7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQUEsUUFBUSxRQUFSLEVBQWtCQyxNQUFsQjtBQUNBLElBQU1DLE9BQU9GLFFBQVEsTUFBUixDQUFiO0FBQ0EsSUFBTUcsU0FBU0QsS0FBS0MsTUFBcEI7QUFDQSxJQUFNQyxPQUFPSixRQUFRLE1BQVIsQ0FBYjtBQUNBLElBQU1LLFdBQVdMLFFBQVEsaUJBQVIsQ0FBakI7O0FBRUEsSUFBSU0sa0JBQWtCO0FBQ3BCLFVBQVEsRUFBQyxTQUFRLFlBQVQsRUFEWTtBQUVwQixZQUFTLEVBRlc7QUFHcEIsY0FBVyxFQUhTO0FBSXBCLFVBQVE7QUFDTix1QkFBa0IseUJBRFo7QUFFTiw0QkFBdUIsRUFBQyxPQUFNLENBQVAsRUFBUyxPQUFNLENBQWY7QUFGakIsR0FKWTtBQVFwQixlQUFZLElBUlE7QUFTcEIsaUJBQWM7QUFUTSxDQUF0Qjs7QUFZQUMsU0FBUyxvQkFBVCxFQUErQixZQUFNO0FBQ25DQyxLQUFHLDZFQUFILEVBQWtGLFlBQU07QUFDcEYsUUFBSUMs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OztBQUFBO0FBRXBDTCxrQkFGb0M7O0FBR3hDdEIsbUJBQU9zQixNQUFQLEVBQWVmLEVBQWYsQ0FBa0JzQixJQUFsQixDQUF1QkMsUUFBdkIsQ0FBZ0MsTUFBaEM7O0FBSHdDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLEdBQTFDOztBQU1BekIsS0FBRywyQ0FBSCwwREFBZ0Q7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQzFDZSxnQkFEMEMsR0FDbkNkLFdBQVdLLFdBQVgsRUFBd0IsWUFBeEIsQ0FEbUM7QUFBQTtBQUFBO0FBQUEsbUJBR3pCUyxLQUFLVyxhQUFMLEVBSHlCOztBQUFBO0FBR3hDVCxrQkFId0M7QUFBQTtBQUFBOztBQUFBO0FBQUE7QUFBQTs7QUFNNUN0QixpQ0FBWU8sRUFBWixDQUFlc0IsSUFBZixDQUFvQkMsUUFBcEIsQ0FBNkIsUUFBN0I7QUFDQTlCLG1CQUFPLGFBQUlnQyxNQUFKLENBQVcsQ0FBWCxFQUFjQyxPQUFkLENBQXNCQyxRQUF0QixDQUErQixxQkFBL0IsQ0FBUCxFQUE4RDNCLEVBQTlELENBQWlFQyxFQUFqRSxDQUFvRWdCLElBQXBFOztBQVA0QztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxHQUFoRDs7QUFhQUMsWUFBVSxZQUFNO0FBQ2R4QixTQUFLeUIsUUFBTDtBQUNELEdBRkQ7QUFHRCxDQXBDRCIsImZpbGUiOiJ0ZXN0LW1hbnVzY3JpcHQuanMiLCJzb3VyY2VSb290IjoiL2FwcC90ZXN0Iiwic291cmNlc0NvbnRlbnQiOlsiLyogZ2xvYmFsIGl0ICovXG4vKiBnbG9iYWwgZGVzY3JpYmUgKi9cbi8qIGdsb2JhbCBiZWZvcmVFYWNoICovXG4vKiBnbG9iYWwgYWZ0ZXJFYWNoICovXG5cbnJlcXVpcmUoJ2RvdGVudicpLmNvbmZpZygpO1xuY29uc3QgY2hhaSA9IHJlcXVpcmUoJ2NoYWknKTtcbmNvbnN0IGV4cGVjdCA9IGNoYWkuZXhwZWN0O1xuY29uc3Qgbm9jayA9IHJlcXVpcmUoJ25vY2snKTtcbmNvbnN0IHJlc3BvbnNlID0gcmVxdWlyZSgnLi9tb2NrLXJlc3BvbnNlJyk7XG5cbmxldCBsb2dvblZhbGlkVG9rZW4gPSB7XG4gIFwiZGF0YVwiOiB7XCJ0b2tlblwiOlwidmFsaWR0b2tlblwifSxcbiAgXCJlcnJvcnNcIjpbXSxcbiAgXCJ3YXJuaW5nc1wiOltdLFxuICBcIm1ldGFcIjoge1xuICAgIFwianNkYkludmFsaWRhdG9yXCI6XCJwMExMd2ZLM0lrT0V5aXNWRDhpRzFBMlwiLFxuICAgIFwiY2xpZW50VmVyc2lvbkFsbG93ZWRcIjp7XCJtaW5cIjo1LFwibWF4XCI6NX1cbiAgfSxcbiAgXCJlcnJvckNvZGVcIjpudWxsLFxuICBcIm1heENhY2hlQWdlXCI6bnVsbFxufVxuXG5kZXNjcmliZShcIlJFUVVJUkUgTUFOVVNDUklQVFwiLCAoKSA9PiB7XG4gIGl0KFwiUmVxdWlyZSBNYW51c2NyaXB0OiBSZXR1cm5zIGEgZnVuY3Rpb24gd2hlbiBpbnN0YW50aWF0ZWQgd2l0aG91dCBwYXJhbWV0ZXJzXCIsICgpID0+IHtcbiAgICAgIGxldCBtYW51c2NyaXB0ID0gcmVxdWlyZSgnLi4vbWFudXNjcmlwdCcpO1xuICAgICAgZXhwZWN0KG1hbnVzY3JpcHQpLnRvLmJlLmEoXCJmdW5jdGlvblwiKTtcbiAgfSlcbiAgXG4gIGl0KFwiUmVxdWlyZSBNYW51c2NyaXB0OiBSZXR1cm5zIGFuIG9iamVjdCB3aGVuIGluc3RhbnRpYXRlZCB3aXRoIHBhcmFtc1wiLCAoKSA9PiB7XG4gICAgICBsZXQgbWFudXNjcmlwdCA9IHJlcXVpcmUoJy4uL21hbnVzY3JpcHQnKShcImh0dHA6Ly93d3cuZXhhbXBsZS5jb21cIiwgXCJmYWtldG9rZW5cIilcbiAgICAgIGV4cGVjdChtYW51c2NyaXB0KS50by5iZS5hbignb2JqZWN0Jyk7XG4gIH0pXG59KVxuXG5jb25zdCBhcGlFbmRwb2ludCA9ICdodHRwczovL3d3dy5leGFtcGxlLmNvbS8nXG5ub2NrLmRpc2FibGVOZXRDb25uZWN0KCk7XG5cbmRlc2NyaWJlKCdGdW5jdGlvbiBtYW51c2NyaXB0LmlzVmFsaWQoKScsICgpID0+IHtcbiAgbGV0IG1hbnVzY3JpcHQgPSByZXF1aXJlKCcuLi9tYW51c2NyaXB0Jyk7XG4gIGJlZm9yZUVhY2goKCkgPT4ge1xuICAgIG5vY2soYCR7YXBpRW5kcG9pbnR9YXBpYClcbiAgICAgIC5wb3N0KCcvbG9nb24nLCBKU09OLnN0cmluZ2lmeSh7dG9rZW46IFwibm9zdWNodG9rZW5cIn0pKVxuICAgICAgLnJlcGx5KDQwMCwgcmVzcG9uc2UubG9nb25JbnZhbGlkVG9rZW4pO1xuICAgIFxuICAgIG5vY2soYCR7YXBpRW5kcG9pbnR9YXBpYClcbiAgICAgIC5wb3N0KCcvbG9nb24nLCBKU09OLnN0cmluZ2lmeSh7dG9rZW46IFwidmFsaWR0b2tlblwifSkpXG4gICAgICAucmVwbHkoMjAwLCBsb2dvblZhbGlkVG9rZW4pO1xuICB9KTtcblxuICBpdCgnUmV0dXJucyBmYWxzZSBnaXZlbiBhbiBpbnZhbGlkIHRva2VuJywgYXN5bmMgKCkgPT4ge1xuICAgIGxldCBtQVBJID0gbWFudXNjcmlwdChhcGlFbmRwb2ludCwgXCJub3N1Y2h0b2tlblwiKVxuICAgIGxldCByZXN1bHQgPSBhd2FpdCBtQVBJLmlzVmFsaWQoKTtcbiAgICBleHBlY3QocmVzdWx0KS50by5iZS5mYWxzZTtcbiAgfSk7XG4gIFxuICBpdCgnUmV0dXJucyB0cnVlIGdpdmVuIGFuIHZhbGlkIHRva2VuJywgYXN5bmMgKCkgPT4ge1xuICAgIGxldCBtQVBJID0gbWFudXNjcmlwdChhcGlFbmRwb2ludCwgXCJ2YWxpZHRva2VuXCIpXG4gICAgbGV0IHJlc3VsdCA9IGF3YWl0IG1BUEkuaXNWYWxpZCgpO1xuICAgIGV4cGVjdChyZXN1bHQpLnRvLmJlLnRydWU7XG4gIH0pO1xuICBcbiAgXG4gIGFmdGVyRWFjaCgoKSA9PiB7XG4gICAgbm9jay5jbGVhbkFsbCgpXG4gIH0pXG59KTtcblxuZGVzY3JpYmUoJ0NhbGxpbmcgTWFudXNjcmlwdCBBUEknLCAoKSA9PiB7XG4gIGxldCBtYW51c2NyaXB0ID0gcmVxdWlyZSgnLi4vbWFudXNjcmlwdCcpO1xuICBiZWZvcmVFYWNoKCgpID0+IHtcbiAgICBub2NrLmRpc2FibGVOZXRDb25uZWN0KCk7XG5cbiAgICBub2NrKGAke2FwaUVuZHBvaW50fWFwaWApXG4gICAgICAucG9zdCgnL25ldycsIEpTT04uc3RyaW5naWZ5KHtcInRva2VuXCI6IFwidmFsaWR0b2tlblwiLCBcInNUaXRsZVwiOiBcIk5ldyBDYXNlIFRocm91Z2ggQVBJXCJ9KSlcbiAgICAgIC5yZXBseSgyMDAsIHJlc3BvbnNlLm5ldyk7XG4gICAgXG4gICAgbm9jayhgJHthcGlFbmRwb2ludH1hcGlgKVxuICAgICAgLnBvc3QoJy9ub3N1Y2hjb21tYW5kJywgSlNPTi5zdHJpbmdpZnkoe3Rva2VuOiBcInZhbGlkdG9rZW5cIn0pKVxuICAgICAgLnJlcGx5KDQwMCwgcmVzcG9uc2Uubm9TdWNoQ29tbWFuZCk7XG4gIH0pO1xuXG4gIGl0KCdSZXR1cm5zIGEgbmV3IGNhc2UgZ2l2ZW4gdmFsaWQgZGF0YScsIGFzeW5jICgpID0+IHtcbiAgICBsZXQgbUFQSSA9IG1hbnVzY3JpcHQoYXBpRW5kcG9pbnQsIFwidmFsaWR0b2tlblwiKVxuICAgIGxldCByZXN1bHQgPSBhd2FpdCBtQVBJLm5ldyh7XCJ0b2tlblwiOiBcInZhbGlkdG9rZW5cIiwgXCJzVGl0bGVcIjogXCJOZXcgQ2FzZSBUaHJvdWdoIEFQSVwifSk7XG4gICAgZXhwZWN0KHJlc3VsdCkudG8uaGF2ZS5wcm9wZXJ0eSgnY2FzZScpXG4gIH0pO1xuICBcbiAgaXQoJ1Rocm93cyBhbiBlcnJvciBnaXZlbiBhbiBpbnZhbGlkIGVuZHBvaW50JywgYXN5bmMgKCkgPT4ge1xuICAgIGxldCBtQVBJID0gbWFudXNjcmlwdChhcGlFbmRwb2ludCwgXCJ2YWxpZHRva2VuXCIpXG4gICAgdHJ5IHtcbiAgICAgIGxldCByZXN1bHQgPSBhd2FpdCBtQVBJLm5vc3VjaGNvbW1hbmQoKTtcbiAgICB9XG4gICAgY2F0Y2ggKGVycikge1xuICAgICAgZXhwZWN0KGVycikudG8uaGF2ZS5wcm9wZXJ0eSgnZXJyb3JzJyk7XG4gICAgICBleHBlY3QoZXJyLmVycm9yc1swXS5tZXNzYWdlLmluY2x1ZGVzKCdObyBzdWNoIEFQSSBjb21tYW5kJykpLnRvLmJlLnRydWVcbiAgICB9XG5cbiAgfSk7XG4gIFxuICBcbiAgYWZ0ZXJFYWNoKCgpID0+IHtcbiAgICBub2NrLmNsZWFuQWxsKClcbiAgfSlcbn0pO1xuXG5cblxuXG4iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "test-manuscript.js"
+      ],
+      "names": [
+        "require",
+        "config",
+        "chai",
+        "expect",
+        "nock",
+        "response",
+        "logonValidToken",
+        "describe",
+        "it",
+        "manuscript",
+        "to",
+        "be",
+        "a",
+        "an",
+        "apiEndpoint",
+        "disableNetConnect",
+        "beforeEach",
+        "post",
+        "JSON",
+        "stringify",
+        "token",
+        "reply",
+        "logonInvalidToken",
+        "mAPI",
+        "isValid",
+        "result",
+        "false",
+        "true",
+        "afterEach",
+        "cleanAll",
+        "new",
+        "noSuchCommand",
+        "have",
+        "property",
+        "nosuchcommand",
+        "errors",
+        "message",
+        "includes"
+      ],
+      "mappings": ";;;;AAAA;AACA;AACA;AACA;;AAEAA,QAAQ,QAAR,EAAkBC,MAAlB;AACA,IAAMC,OAAOF,QAAQ,MAAR,CAAb;AACA,IAAMG,SAASD,KAAKC,MAApB;AACA,IAAMC,OAAOJ,QAAQ,MAAR,CAAb;AACA,IAAMK,WAAWL,QAAQ,iBAAR,CAAjB;;AAEA,IAAIM,kBAAkB;AACpB,UAAQ,EAAC,SAAQ,YAAT,EADY;AAEpB,YAAS,EAFW;AAGpB,cAAW,EAHS;AAIpB,UAAQ;AACN,uBAAkB,yBADZ;AAEN,4BAAuB,EAAC,OAAM,CAAP,EAAS,OAAM,CAAf;AAFjB,GAJY;AAQpB,eAAY,IARQ;AASpB,iBAAc;AATM,CAAtB;;AAYAC,SAAS,oBAAT,EAA+B,YAAM;AACnCC,KAAG,6EAAH,EAAkF,YAAM;AACpF,QAAIC,aAAaT,QAAQ,eAAR,CAAjB;AACAG,WAAOM,UAAP,EAAmBC,EAAnB,CAAsBC,EAAtB,CAAyBC,CAAzB,CAA2B,UAA3B;AACH,GAHD;;AAKAJ,KAAG,qEAAH,EAA0E,YAAM;AAC5E,QAAIC,aAAaT,QAAQ,eAAR,EAAyB,wBAAzB,EAAmD,WAAnD,CAAjB;AACAG,WAAOM,UAAP,EAAmBC,EAAnB,CAAsBC,EAAtB,CAAyBE,EAAzB,CAA4B,QAA5B;AACH,GAHD;AAID,CAVD;;AAYA,IAAMC,cAAc,0BAApB;AACAV,KAAKW,iBAAL;;AAEAR,SAAS,+BAAT,EAA0C,YAAM;AAC9C,MAAIE,aAAaT,QAAQ,eAAR,CAAjB;AACAgB,aAAW,YAAM;AACfZ,SAAQU,WAAR,UACGG,IADH,CACQ,QADR,EACkBC,KAAKC,SAAL,CAAe,EAACC,OAAO,aAAR,EAAf,CADlB,EAEGC,KAFH,CAES,GAFT,EAEchB,SAASiB,iBAFvB;;AAIAlB,SAAQU,WAAR,UACGG,IADH,CACQ,QADR,EACkBC,KAAKC,SAAL,CAAe,EAACC,OAAO,YAAR,EAAf,CADlB,EAEGC,KAFH,CAES,GAFT,EAEcf,eAFd;AAGD,GARD;;AAUAE,KAAG,sCAAH,0DAA2C;AAAA;AAAA;AAAA;AAAA;AAAA;AACrCe,gBADqC,GAC9Bd,WAAWK,WAAX,EAAwB,aAAxB,CAD8B;AAAA;AAAA,mBAEtBS,KAAKC,OAAL,EAFsB;;AAAA;AAErCC,kBAFqC;;AAGzCtB,mBAAOsB,MAAP,EAAef,EAAf,CAAkBC,EAAlB,CAAqBe,KAArB;;AAHyC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,GAA3C;;AAMAlB,KAAG,mCAAH,0DAAwC;AAAA;AAAA;AAAA;AAAA;AAAA;AAClCe,gBADkC,GAC3Bd,WAAWK,WAAX,EAAwB,YAAxB,CAD2B;AAAA;AAAA,mBAEnBS,KAAKC,OAAL,EAFmB;;AAAA;AAElCC,kBAFkC;;AAGtCtB,mBAAOsB,MAAP,EAAef,EAAf,CAAkBC,EAAlB,CAAqBgB,IAArB;;AAHsC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,GAAxC;;AAOAC,YAAU,YAAM;AACdxB,SAAKyB,QAAL;AACD,GAFD;AAGD,CA5BD;;AA8BAtB,SAAS,wBAAT,EAAmC,YAAM;AACvC,MAAIE,aAAaT,QAAQ,eAAR,CAAjB;AACAgB,aAAW,YAAM;AACfZ,SAAKW,iBAAL;;AAEAX,SAAQU,WAAR,UACGG,IADH,CACQ,MADR,EACgBC,KAAKC,SAAL,CAAe,EAAC,SAAS,YAAV,EAAwB,UAAU,sBAAlC,EAAf,CADhB,EAEGE,KAFH,CAES,GAFT,EAEchB,SAASyB,GAFvB;;AAIA1B,SAAQU,WAAR,UACGG,IADH,CACQ,gBADR,EAC0BC,KAAKC,SAAL,CAAe,EAACC,OAAO,YAAR,EAAf,CAD1B,EAEGC,KAFH,CAES,GAFT,EAEchB,SAAS0B,aAFvB;AAGD,GAVD;;AAYAvB,KAAG,qCAAH,0DAA0C;AAAA;AAAA;AAAA;AAAA;AAAA;AACpCe,gBADoC,GAC7Bd,WAAWK,WAAX,EAAwB,YAAxB,CAD6B;AAAA;AAAA,mBAErBS,KAAKO,GAAL,CAAS,EAAC,SAAS,YAAV,EAAwB,UAAU,sBAAlC,EAAT,CAFqB;;AAAA;AAEpCL,kBAFoC;;AAGxCtB,mBAAOsB,MAAP,EAAef,EAAf,CAAkBsB,IAAlB,CAAuBC,QAAvB,CAAgC,MAAhC;;AAHwC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,GAA1C;;AAMAzB,KAAG,2CAAH,0DAAgD;AAAA;AAAA;AAAA;AAAA;AAAA;AAC1Ce,gBAD0C,GACnCd,WAAWK,WAAX,EAAwB,YAAxB,CADmC;AAAA;AAAA;AAAA,mBAGzBS,KAAKW,aAAL,EAHyB;;AAAA;AAGxCT,kBAHwC;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAM5CtB,iCAAYO,EAAZ,CAAesB,IAAf,CAAoBC,QAApB,CAA6B,QAA7B;AACA9B,mBAAO,aAAIgC,MAAJ,CAAW,CAAX,EAAcC,OAAd,CAAsBC,QAAtB,CAA+B,qBAA/B,CAAP,EAA8D3B,EAA9D,CAAiEC,EAAjE,CAAoEgB,IAApE;;AAP4C;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,GAAhD;;AAaAC,YAAU,YAAM;AACdxB,SAAKyB,QAAL;AACD,GAFD;AAGD,CApCD",
+      "file": "test-manuscript.js",
+      "sourceRoot": "/app/test",
+      "sourcesContent": [
+        "/* global it */\n/* global describe */\n/* global beforeEach */\n/* global afterEach */\n\nrequire('dotenv').config();\nconst chai = require('chai');\nconst expect = chai.expect;\nconst nock = require('nock');\nconst response = require('./mock-response');\n\nlet logonValidToken = {\n  \"data\": {\"token\":\"validtoken\"},\n  \"errors\":[],\n  \"warnings\":[],\n  \"meta\": {\n    \"jsdbInvalidator\":\"p0LLwfK3IkOEyisVD8iG1A2\",\n    \"clientVersionAllowed\":{\"min\":5,\"max\":5}\n  },\n  \"errorCode\":null,\n  \"maxCacheAge\":null\n}\n\ndescribe(\"REQUIRE MANUSCRIPT\", () => {\n  it(\"Require Manuscript: Returns a function when instantiated without parameters\", () => {\n      let manuscript = require('../manuscript');\n      expect(manuscript).to.be.a(\"function\");\n  })\n  \n  it(\"Require Manuscript: Returns an object when instantiated with params\", () => {\n      let manuscript = require('../manuscript')(\"http://www.example.com\", \"faketoken\")\n      expect(manuscript).to.be.an('object');\n  })\n})\n\nconst apiEndpoint = 'https://www.example.com/'\nnock.disableNetConnect();\n\ndescribe('Function manuscript.isValid()', () => {\n  let manuscript = require('../manuscript');\n  beforeEach(() => {\n    nock(`${apiEndpoint}api`)\n      .post('/logon', JSON.stringify({token: \"nosuchtoken\"}))\n      .reply(400, response.logonInvalidToken);\n    \n    nock(`${apiEndpoint}api`)\n      .post('/logon', JSON.stringify({token: \"validtoken\"}))\n      .reply(200, logonValidToken);\n  });\n\n  it('Returns false given an invalid token', async () => {\n    let mAPI = manuscript(apiEndpoint, \"nosuchtoken\")\n    let result = await mAPI.isValid();\n    expect(result).to.be.false;\n  });\n  \n  it('Returns true given an valid token', async () => {\n    let mAPI = manuscript(apiEndpoint, \"validtoken\")\n    let result = await mAPI.isValid();\n    expect(result).to.be.true;\n  });\n  \n  \n  afterEach(() => {\n    nock.cleanAll()\n  })\n});\n\ndescribe('Calling Manuscript API', () => {\n  let manuscript = require('../manuscript');\n  beforeEach(() => {\n    nock.disableNetConnect();\n\n    nock(`${apiEndpoint}api`)\n      .post('/new', JSON.stringify({\"token\": \"validtoken\", \"sTitle\": \"New Case Through API\"}))\n      .reply(200, response.new);\n    \n    nock(`${apiEndpoint}api`)\n      .post('/nosuchcommand', JSON.stringify({token: \"validtoken\"}))\n      .reply(400, response.noSuchCommand);\n  });\n\n  it('Returns a new case given valid data', async () => {\n    let mAPI = manuscript(apiEndpoint, \"validtoken\")\n    let result = await mAPI.new({\"token\": \"validtoken\", \"sTitle\": \"New Case Through API\"});\n    expect(result).to.have.property('case')\n  });\n  \n  it('Throws an error given an invalid endpoint', async () => {\n    let mAPI = manuscript(apiEndpoint, \"validtoken\")\n    try {\n      let result = await mAPI.nosuchcommand();\n    }\n    catch (err) {\n      expect(err).to.have.property('errors');\n      expect(err.errors[0].message.includes('No such API command')).to.be.true\n    }\n\n  });\n  \n  \n  afterEach(() => {\n    nock.cleanAll()\n  })\n});\n\n\n\n\n"
+      ]
+    },
+    "mtime": 1508253186649
+  },
+  "{\"filename\":\"/app/manuscript.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "createClass",
+        "classCallCheck",
+        "asyncToGenerator"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/manuscript.js",
+      "filenameRelative": "/app/manuscript.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "manuscript.js",
+      "sourceFileName": "manuscript.js",
+      "sourceRoot": "/app",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "manuscript"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n/* global Proxy */\nvar rp = require('request-promise-native');\nvar urljoin = require('url-join');\n\nmodule.exports = init;\n\nfunction init(site, token) {\n  return new Manuscript(site, token).proxify();\n}\n\nvar Manuscript = function () {\n  function Manuscript(site, token) {\n    _classCallCheck(this, Manuscript);\n\n    Object.assign(this, { token: token, site: site, url: urljoin(site + \"/api/\") });\n  }\n\n  _createClass(Manuscript, [{\n    key: 'proxify',\n    value: function proxify() {\n      var handler = {\n        get: function get(target, property, receiver) {\n          return function () {\n            //args = args || {};\n            if (property in target) {\n              return target[property].apply(target, arguments);\n            }\n            return target.makeRequest.apply(target, [property].concat(Array.prototype.slice.call(arguments)));\n          };\n        }\n      };\n      return new Proxy(this, handler);\n    }\n  }, {\n    key: 'isValid',\n    value: function () {\n      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n        var response;\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n          while (1) {\n            switch (_context.prev = _context.next) {\n              case 0:\n                _context.prev = 0;\n                _context.next = 3;\n                return rp({\n                  method: 'POST',\n                  url: this.url + \"logon\",\n                  json: { token: this.token }\n                });\n\n              case 3:\n                response = _context.sent;\n                return _context.abrupt('return', response.data.token === this.token);\n\n              case 7:\n                _context.prev = 7;\n                _context.t0 = _context['catch'](0);\n                return _context.abrupt('return', false);\n\n              case 10:\n              case 'end':\n                return _context.stop();\n            }\n          }\n        }, _callee, this, [[0, 7]]);\n      }));\n\n      function isValid() {\n        return _ref.apply(this, arguments);\n      }\n\n      return isValid;\n    }()\n  }, {\n    key: 'makeRequest',\n    value: function () {\n      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(command) {\n        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};\n        var body, errors;\n        return regeneratorRuntime.wrap(function _callee2$(_context2) {\n          while (1) {\n            switch (_context2.prev = _context2.next) {\n              case 0:\n                options.token = this.token;\n\n                _context2.prev = 1;\n                _context2.next = 4;\n                return rp({\n                  method: 'POST',\n                  url: this.url + command,\n                  json: options });\n\n              case 4:\n                body = _context2.sent;\n                return _context2.abrupt('return', body.data);\n\n              case 8:\n                _context2.prev = 8;\n                _context2.t0 = _context2['catch'](1);\n                errors = _context2.t0.error && _context2.t0.error.errors || [];\n\n                console.log(errors);\n                throw { errors: errors };\n\n              case 13:\n              case 'end':\n                return _context2.stop();\n            }\n          }\n        }, _callee2, this, [[1, 8]]);\n      }));\n\n      function makeRequest(_x2) {\n        return _ref2.apply(this, arguments);\n      }\n\n      return makeRequest;\n    }()\n  }]);\n\n  return Manuscript;\n}();\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hbnVzY3JpcHQuanMiXSwibmFtZXMiOlsicnAiLCJyZXF1aXJlIiwidXJsam9pbiIsIm1vZHVsZSIsImV4cG9ydHMiLCJpbml0Iiwic2l0ZSIsInRva2VuIiwiTWFudXNjcmlwdCIsInByb3hpZnkiLCJPYmplY3QiLCJhc3NpZ24iLCJ1cmwiLCJoYW5kbGVyIiwiZ2V0IiwidGFyZ2V0IiwicHJvcGVydHkiLCJyZWNlaXZlciIsImFyZ3VtZW50cyIsIm1ha2VSZXF1ZXN0IiwiUHJveHkiLCJtZXRob2QiLCJqc29uIiwicmVzcG9uc2UiLCJkYXRhIiwiY29tbWFuZCIsIm9wdGlvbnMiLCJib2R5IiwiZXJyb3JzIiwiZXJyb3IiLCJjb25zb2xlIiwibG9nIl0sIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBO0FBQ0EsSUFBSUEsS0FBS0MsUUFBUSx3QkFBUixDQUFUO0FBQ0EsSUFBSUMsVUFBVUQsUUFBUSxVQUFSLENBQWQ7O0FBRUFFLE9BQU9DLE9BQVAsR0FBaUJDLElBQWpCOztBQUVBLFNBQVNBLElBQVQsQ0FBY0MsSUFBZCxFQUFvQkMsS0FBcEIsRUFBMkI7QUFDekIsU0FBTyxJQUFJQyxVQUFKLENBQWVGLElBQWYsRUFBcUJDLEtBQXJCLEVBQTRCRSxPQUE1QixFQUFQO0FBQ0Q7O0lBRUtELFU7QUFFSixzQkFBWUYsSUFBWixFQUFrQkMsS0FBbEIsRUFBeUI7QUFBQTs7QUFDdkJHLFdBQU9DLE1BQVAsQ0FBYyxJQUFkLEVBQW9CLEVBQUNKLE9BQU1BLEtBQVAsRUFBY0QsTUFBS0EsSUFBbkIsRUFBeUJNLEtBQUtWLFFBQVFJLE9BQU8sT0FBZixDQUE5QixFQUFwQjtBQUNEOzs7OzhCQUVTO0FBQ1IsVUFBSU8sVUFBVTtBQUNaQyxXQURZLGVBQ1JDLE1BRFEsRUFDQUMsUUFEQSxFQUNVQyxRQURWLEVBQ29CO0FBQzlCLGlCQUFPLFlBQVc7QUFDaEI7QUFDQSxnQkFBSUQsWUFBWUQsTUFBaEIsRUFBd0I7QUFDdEIscUJBQU9BLE9BQU9DLFFBQVAsZ0JBQW9CRSxTQUFwQixDQUFQO0FBQ0Q7QUFDRCxtQkFBT0gsT0FBT0ksV0FBUCxnQkFBbUJILFFBQW5CLG9DQUFnQ0UsU0FBaEMsR0FBUDtBQUNELFdBTkQ7QUFPRDtBQVRXLE9BQWQ7QUFXQSxhQUFPLElBQUlFLEtBQUosQ0FBVSxJQUFWLEVBQWdCUCxPQUFoQixDQUFQO0FBQ0Q7Ozs7Ozs7Ozs7Ozt1QkFJd0JiLEdBQUc7QUFDdEJxQiwwQkFBUSxNQURjO0FBRXRCVCx1QkFBSyxLQUFLQSxHQUFMLEdBQVcsT0FGTTtBQUd0QlUsd0JBQU0sRUFBQ2YsT0FBTyxLQUFLQSxLQUFiO0FBSGdCLGlCQUFILEM7OztBQUFqQmdCLHdCO2lEQU1HQSxTQUFTQyxJQUFULENBQWNqQixLQUFkLEtBQXdCLEtBQUtBLEs7Ozs7O2lEQUc3QixLOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OzRGQUtRa0IsTztZQUFTQyxPLHVFQUFVLEU7Ozs7OztBQUNwQ0Esd0JBQVFuQixLQUFSLEdBQWdCLEtBQUtBLEtBQXJCOzs7O3VCQUdtQlAsR0FBRztBQUNsQnFCLDBCQUFRLE1BRFU7QUFFbEJULHVCQUFLLEtBQUtBLEdBQUwsR0FBV2EsT0FGRTtBQUdsQkgsd0JBQU1JLE9BSFksRUFBSCxDOzs7QUFBYkMsb0I7a0RBSUdBLEtBQUtILEk7Ozs7O0FBRVJJLHNCLEdBQVMsYUFBR0MsS0FBSCxJQUFZLGFBQUdBLEtBQUgsQ0FBU0QsTUFBckIsSUFBK0IsRTs7QUFDNUNFLHdCQUFRQyxHQUFSLENBQVlILE1BQVo7c0JBQ00sRUFBQ0EsUUFBUUEsTUFBVCxFIiwiZmlsZSI6Im1hbnVzY3JpcHQuanMiLCJzb3VyY2VSb290IjoiL2FwcCIsInNvdXJjZXNDb250ZW50IjpbIi8qIGdsb2JhbCBQcm94eSAqL1xudmFyIHJwID0gcmVxdWlyZSgncmVxdWVzdC1wcm9taXNlLW5hdGl2ZScpO1xudmFyIHVybGpvaW4gPSByZXF1aXJlKCd1cmwtam9pbicpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IGluaXQ7IFxuXG5mdW5jdGlvbiBpbml0KHNpdGUsIHRva2VuKSB7XG4gIHJldHVybiBuZXcgTWFudXNjcmlwdChzaXRlLCB0b2tlbikucHJveGlmeSgpO1xufVxuXG5jbGFzcyBNYW51c2NyaXB0IHsgXG4gIFxuICBjb25zdHJ1Y3RvcihzaXRlLCB0b2tlbikge1xuICAgIE9iamVjdC5hc3NpZ24odGhpcywge3Rva2VuOnRva2VuLCBzaXRlOnNpdGUsIHVybDogdXJsam9pbihzaXRlICsgXCIvYXBpL1wiKX0pXG4gIH1cblxuICBwcm94aWZ5KCkge1xuICAgIGxldCBoYW5kbGVyID0ge1xuICAgICAgZ2V0KHRhcmdldCwgcHJvcGVydHksIHJlY2VpdmVyKSB7XG4gICAgICAgIHJldHVybiBmdW5jdGlvbigpIHtcbiAgICAgICAgICAvL2FyZ3MgPSBhcmdzIHx8IHt9O1xuICAgICAgICAgIGlmIChwcm9wZXJ0eSBpbiB0YXJnZXQpIHtcbiAgICAgICAgICAgIHJldHVybiB0YXJnZXRbcHJvcGVydHldKC4uLmFyZ3VtZW50cylcbiAgICAgICAgICB9XG4gICAgICAgICAgcmV0dXJuIHRhcmdldC5tYWtlUmVxdWVzdChwcm9wZXJ0eSwgLi4uYXJndW1lbnRzKVxuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICAgIHJldHVybiBuZXcgUHJveHkodGhpcywgaGFuZGxlcilcbiAgfTtcbiAgXG4gIGFzeW5jIGlzVmFsaWQoKSB7XG4gICAgdHJ5IHtcbiAgICAgIGxldCByZXNwb25zZSA9IGF3YWl0IHJwKHtcbiAgICAgICAgbWV0aG9kOiAnUE9TVCcsIFxuICAgICAgICB1cmw6IHRoaXMudXJsICsgXCJsb2dvblwiLCBcbiAgICAgICAganNvbjoge3Rva2VuOiB0aGlzLnRva2VufVxuICAgICAgfSk7XG4gICAgICBcbiAgICAgIHJldHVybiByZXNwb25zZS5kYXRhLnRva2VuID09PSB0aGlzLnRva2VuO1xuICBcbiAgICB9IGNhdGNoIChlcnIpIHtcbiAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9XG4gIH1cblxuXG4gIGFzeW5jIG1ha2VSZXF1ZXN0IChjb21tYW5kLCBvcHRpb25zID0ge30pIHtcbiAgICBvcHRpb25zLnRva2VuID0gdGhpcy50b2tlbjtcbiAgICBcbiAgICB0cnkge1xuICAgICAgbGV0IGJvZHkgPSBhd2FpdCBycCh7XG4gICAgICAgIG1ldGhvZDogJ1BPU1QnLFxuICAgICAgICB1cmw6IHRoaXMudXJsICsgY29tbWFuZCxcbiAgICAgICAganNvbjogb3B0aW9uc30pO1xuICAgICAgcmV0dXJuIGJvZHkuZGF0YTtcbiAgICB9IGNhdGNoKGV4KSB7XG4gICAgICBsZXQgZXJyb3JzID0gZXguZXJyb3IgJiYgZXguZXJyb3IuZXJyb3JzIHx8IFtdO1xuICAgICAgY29uc29sZS5sb2coZXJyb3JzKTtcbiAgICAgIHRocm93IHtlcnJvcnM6IGVycm9yc307XG4gICAgfVxuICB9XG59XG5cblxuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "manuscript.js"
+      ],
+      "names": [
+        "rp",
+        "require",
+        "urljoin",
+        "module",
+        "exports",
+        "init",
+        "site",
+        "token",
+        "Manuscript",
+        "proxify",
+        "Object",
+        "assign",
+        "url",
+        "handler",
+        "get",
+        "target",
+        "property",
+        "receiver",
+        "arguments",
+        "makeRequest",
+        "Proxy",
+        "method",
+        "json",
+        "response",
+        "data",
+        "command",
+        "options",
+        "body",
+        "errors",
+        "error",
+        "console",
+        "log"
+      ],
+      "mappings": ";;;;;;;;AAAA;AACA,IAAIA,KAAKC,QAAQ,wBAAR,CAAT;AACA,IAAIC,UAAUD,QAAQ,UAAR,CAAd;;AAEAE,OAAOC,OAAP,GAAiBC,IAAjB;;AAEA,SAASA,IAAT,CAAcC,IAAd,EAAoBC,KAApB,EAA2B;AACzB,SAAO,IAAIC,UAAJ,CAAeF,IAAf,EAAqBC,KAArB,EAA4BE,OAA5B,EAAP;AACD;;IAEKD,U;AAEJ,sBAAYF,IAAZ,EAAkBC,KAAlB,EAAyB;AAAA;;AACvBG,WAAOC,MAAP,CAAc,IAAd,EAAoB,EAACJ,OAAMA,KAAP,EAAcD,MAAKA,IAAnB,EAAyBM,KAAKV,QAAQI,OAAO,OAAf,CAA9B,EAApB;AACD;;;;8BAES;AACR,UAAIO,UAAU;AACZC,WADY,eACRC,MADQ,EACAC,QADA,EACUC,QADV,EACoB;AAC9B,iBAAO,YAAW;AAChB;AACA,gBAAID,YAAYD,MAAhB,EAAwB;AACtB,qBAAOA,OAAOC,QAAP,gBAAoBE,SAApB,CAAP;AACD;AACD,mBAAOH,OAAOI,WAAP,gBAAmBH,QAAnB,oCAAgCE,SAAhC,GAAP;AACD,WAND;AAOD;AATW,OAAd;AAWA,aAAO,IAAIE,KAAJ,CAAU,IAAV,EAAgBP,OAAhB,CAAP;AACD;;;;;;;;;;;;uBAIwBb,GAAG;AACtBqB,0BAAQ,MADc;AAEtBT,uBAAK,KAAKA,GAAL,GAAW,OAFM;AAGtBU,wBAAM,EAACf,OAAO,KAAKA,KAAb;AAHgB,iBAAH,C;;;AAAjBgB,wB;iDAMGA,SAASC,IAAT,CAAcjB,KAAd,KAAwB,KAAKA,K;;;;;iDAG7B,K;;;;;;;;;;;;;;;;;;;4FAKQkB,O;YAASC,O,uEAAU,E;;;;;;AACpCA,wBAAQnB,KAAR,GAAgB,KAAKA,KAArB;;;;uBAGmBP,GAAG;AAClBqB,0BAAQ,MADU;AAElBT,uBAAK,KAAKA,GAAL,GAAWa,OAFE;AAGlBH,wBAAMI,OAHY,EAAH,C;;;AAAbC,oB;kDAIGA,KAAKH,I;;;;;AAERI,sB,GAAS,aAAGC,KAAH,IAAY,aAAGA,KAAH,CAASD,MAArB,IAA+B,E;;AAC5CE,wBAAQC,GAAR,CAAYH,MAAZ;sBACM,EAACA,QAAQA,MAAT,E",
+      "file": "manuscript.js",
+      "sourceRoot": "/app",
+      "sourcesContent": [
+        "/* global Proxy */\nvar rp = require('request-promise-native');\nvar urljoin = require('url-join');\n\nmodule.exports = init; \n\nfunction init(site, token) {\n  return new Manuscript(site, token).proxify();\n}\n\nclass Manuscript { \n  \n  constructor(site, token) {\n    Object.assign(this, {token:token, site:site, url: urljoin(site + \"/api/\")})\n  }\n\n  proxify() {\n    let handler = {\n      get(target, property, receiver) {\n        return function() {\n          //args = args || {};\n          if (property in target) {\n            return target[property](...arguments)\n          }\n          return target.makeRequest(property, ...arguments)\n        }\n      }\n    }\n    return new Proxy(this, handler)\n  };\n  \n  async isValid() {\n    try {\n      let response = await rp({\n        method: 'POST', \n        url: this.url + \"logon\", \n        json: {token: this.token}\n      });\n      \n      return response.data.token === this.token;\n  \n    } catch (err) {\n      return false;\n    }\n  }\n\n\n  async makeRequest (command, options = {}) {\n    options.token = this.token;\n    \n    try {\n      let body = await rp({\n        method: 'POST',\n        url: this.url + command,\n        json: options});\n      return body.data;\n    } catch(ex) {\n      let errors = ex.error && ex.error.errors || [];\n      console.log(errors);\n      throw {errors: errors};\n    }\n  }\n}\n\n\n"
+      ]
+    },
+    "mtime": 1508252233806
+  },
+  "{\"filename\":\"/app/test/mock-response.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/test\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/test/mock-response.js",
+      "filenameRelative": "/app/test/mock-response.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "mock-response.js",
+      "sourceFileName": "mock-response.js",
+      "sourceRoot": "/app/test",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/test",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "mock-response"
+    },
+    "ignored": false,
+    "code": "\"use strict\";\n\nmodule.exports = {\n  logonInvalidToken: {\n    \"data\": {},\n    \"errors\": [{\n      \"message\": \"Error 3: Not logged in\",\n      \"detail\": null,\n      \"code\": \"3\"\n    }],\n    \"warnings\": [],\n    \"meta\": {\n      \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\": { \"min\": 5, \"max\": 5 }\n    },\n    \"errorCode\": 400,\n    \"maxCacheAge\": null },\n  logonValidToken: {\n    \"data\": { \"token\": \"validtoken\" },\n    \"errors\": [],\n    \"warnings\": [],\n    \"meta\": {\n      \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\": { \"min\": 5, \"max\": 5 }\n    },\n    \"errorCode\": null,\n    \"maxCacheAge\": null\n  },\n  new: {\n    \"data\": {\n      \"case\": {\n        \"ixBug\": 5518,\n        \"operations\": [\"edit\", \"assign\", \"resolve\", \"email\"]\n      }\n    },\n    \"errors\": [],\n    \"warnings\": [],\n    \"meta\": {\n      \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\": {\n        \"min\": 5,\n        \"max\": 5\n      }\n    },\n    \"errorCode\": null,\n    \"maxCacheAge\": null\n  },\n  noSuchCommand: {\n    \"data\": {},\n    \"errors\": [{\n      \"message\": \"Error 27: No such API command\",\n      \"detail\": null,\n      \"code\": \"27\"\n    }],\n    \"warnings\": [],\n    \"meta\": {\n      \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\": {\n        \"min\": 5,\n        \"max\": 5\n      }\n    },\n    \"errorCode\": 400,\n    \"maxCacheAge\": null\n  }\n};\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vY2stcmVzcG9uc2UuanMiXSwibmFtZXMiOlsibW9kdWxlIiwiZXhwb3J0cyIsImxvZ29uSW52YWxpZFRva2VuIiwibG9nb25WYWxpZFRva2VuIiwibmV3Iiwibm9TdWNoQ29tbWFuZCJdLCJtYXBwaW5ncyI6Ijs7QUFBQUEsT0FBT0MsT0FBUCxHQUFpQjtBQUNmQyxxQkFBbUI7QUFDakIsWUFBTyxFQURVO0FBRWpCLGNBQVMsQ0FDUDtBQUNFLGlCQUFVLHdCQURaO0FBRUUsZ0JBQVMsSUFGWDtBQUdFLGNBQU87QUFIVCxLQURPLENBRlE7QUFTakIsZ0JBQVcsRUFUTTtBQVVqQixZQUFPO0FBQ0wseUJBQWtCLHlCQURiO0FBRUwsOEJBQXVCLEVBQUMsT0FBTSxDQUFQLEVBQVMsT0FBTSxDQUFmO0FBRmxCLEtBVlU7QUFjakIsaUJBQVksR0FkSztBQWVqQixtQkFBYyxJQWZHLEVBREo7QUFpQmZDLG1CQUFpQjtBQUNmLFlBQVEsRUFBQyxTQUFRLFlBQVQsRUFETztBQUVmLGNBQVMsRUFGTTtBQUdmLGdCQUFXLEVBSEk7QUFJZixZQUFRO0FBQ04seUJBQWtCLHlCQURaO0FBRU4sOEJBQXVCLEVBQUMsT0FBTSxDQUFQLEVBQVMsT0FBTSxDQUFmO0FBRmpCLEtBSk87QUFRZixpQkFBWSxJQVJHO0FBU2YsbUJBQWM7QUFUQyxHQWpCRjtBQTRCZkMsT0FBSztBQUNILFlBQVE7QUFDTixjQUFRO0FBQ04saUJBQVMsSUFESDtBQUVOLHNCQUFjLENBQ1osTUFEWSxFQUVaLFFBRlksRUFHWixTQUhZLEVBSVosT0FKWTtBQUZSO0FBREYsS0FETDtBQVlILGNBQVUsRUFaUDtBQWFILGdCQUFZLEVBYlQ7QUFjSCxZQUFRO0FBQ04seUJBQW1CLHlCQURiO0FBRU4sOEJBQXdCO0FBQ3RCLGVBQU8sQ0FEZTtBQUV0QixlQUFPO0FBRmU7QUFGbEIsS0FkTDtBQXFCSCxpQkFBYSxJQXJCVjtBQXNCSCxtQkFBZTtBQXRCWixHQTVCVTtBQW9EZkMsaUJBQWM7QUFDWixZQUFRLEVBREk7QUFFWixjQUFVLENBQ1I7QUFDRSxpQkFBVywrQkFEYjtBQUVFLGdCQUFVLElBRlo7QUFHRSxjQUFRO0FBSFYsS0FEUSxDQUZFO0FBU1osZ0JBQVksRUFUQTtBQVVaLFlBQVE7QUFDTix5QkFBbUIseUJBRGI7QUFFTiw4QkFBd0I7QUFDdEIsZUFBTyxDQURlO0FBRXRCLGVBQU87QUFGZTtBQUZsQixLQVZJO0FBaUJaLGlCQUFhLEdBakJEO0FBa0JaLG1CQUFlO0FBbEJIO0FBcERDLENBQWpCIiwiZmlsZSI6Im1vY2stcmVzcG9uc2UuanMiLCJzb3VyY2VSb290IjoiL2FwcC90ZXN0Iiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSB7XG4gIGxvZ29uSW52YWxpZFRva2VuOiB7XG4gICAgXCJkYXRhXCI6e30sXG4gICAgXCJlcnJvcnNcIjpbXG4gICAgICB7XG4gICAgICAgIFwibWVzc2FnZVwiOlwiRXJyb3IgMzogTm90IGxvZ2dlZCBpblwiLFxuICAgICAgICBcImRldGFpbFwiOm51bGwsXG4gICAgICAgIFwiY29kZVwiOlwiM1wiXG4gICAgICB9XG4gICAgXSxcbiAgICBcIndhcm5pbmdzXCI6W10sXG4gICAgXCJtZXRhXCI6e1xuICAgICAgXCJqc2RiSW52YWxpZGF0b3JcIjpcInAwTEx3ZkszSWtPRXlpc1ZEOGlHMUEyXCIsXG4gICAgICBcImNsaWVudFZlcnNpb25BbGxvd2VkXCI6e1wibWluXCI6NSxcIm1heFwiOjV9XG4gICAgfSxcbiAgICBcImVycm9yQ29kZVwiOjQwMCxcbiAgICBcIm1heENhY2hlQWdlXCI6bnVsbH0sXG4gIGxvZ29uVmFsaWRUb2tlbjoge1xuICAgIFwiZGF0YVwiOiB7XCJ0b2tlblwiOlwidmFsaWR0b2tlblwifSxcbiAgICBcImVycm9yc1wiOltdLFxuICAgIFwid2FybmluZ3NcIjpbXSxcbiAgICBcIm1ldGFcIjoge1xuICAgICAgXCJqc2RiSW52YWxpZGF0b3JcIjpcInAwTEx3ZkszSWtPRXlpc1ZEOGlHMUEyXCIsXG4gICAgICBcImNsaWVudFZlcnNpb25BbGxvd2VkXCI6e1wibWluXCI6NSxcIm1heFwiOjV9XG4gICAgfSxcbiAgICBcImVycm9yQ29kZVwiOm51bGwsXG4gICAgXCJtYXhDYWNoZUFnZVwiOm51bGxcbiAgfSxcbiAgbmV3OiB7XG4gICAgXCJkYXRhXCI6IHtcbiAgICAgIFwiY2FzZVwiOiB7XG4gICAgICAgIFwiaXhCdWdcIjogNTUxOCxcbiAgICAgICAgXCJvcGVyYXRpb25zXCI6IFtcbiAgICAgICAgICBcImVkaXRcIixcbiAgICAgICAgICBcImFzc2lnblwiLFxuICAgICAgICAgIFwicmVzb2x2ZVwiLFxuICAgICAgICAgIFwiZW1haWxcIlxuICAgICAgICBdXG4gICAgICB9XG4gICAgfSxcbiAgICBcImVycm9yc1wiOiBbXSxcbiAgICBcIndhcm5pbmdzXCI6IFtdLFxuICAgIFwibWV0YVwiOiB7XG4gICAgICBcImpzZGJJbnZhbGlkYXRvclwiOiBcInAwTEx3ZkszSWtPRXlpc1ZEOGlHMUEyXCIsXG4gICAgICBcImNsaWVudFZlcnNpb25BbGxvd2VkXCI6IHtcbiAgICAgICAgXCJtaW5cIjogNSxcbiAgICAgICAgXCJtYXhcIjogNVxuICAgICAgfVxuICAgIH0sXG4gICAgXCJlcnJvckNvZGVcIjogbnVsbCxcbiAgICBcIm1heENhY2hlQWdlXCI6IG51bGxcbiAgfSxcbiAgbm9TdWNoQ29tbWFuZDp7XG4gICAgXCJkYXRhXCI6IHt9LFxuICAgIFwiZXJyb3JzXCI6IFtcbiAgICAgIHtcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiRXJyb3IgMjc6IE5vIHN1Y2ggQVBJIGNvbW1hbmRcIixcbiAgICAgICAgXCJkZXRhaWxcIjogbnVsbCxcbiAgICAgICAgXCJjb2RlXCI6IFwiMjdcIlxuICAgICAgfVxuICAgIF0sXG4gICAgXCJ3YXJuaW5nc1wiOiBbXSxcbiAgICBcIm1ldGFcIjoge1xuICAgICAgXCJqc2RiSW52YWxpZGF0b3JcIjogXCJwMExMd2ZLM0lrT0V5aXNWRDhpRzFBMlwiLFxuICAgICAgXCJjbGllbnRWZXJzaW9uQWxsb3dlZFwiOiB7XG4gICAgICAgIFwibWluXCI6IDUsXG4gICAgICAgIFwibWF4XCI6IDVcbiAgICAgIH1cbiAgICB9LFxuICAgIFwiZXJyb3JDb2RlXCI6IDQwMCxcbiAgICBcIm1heENhY2hlQWdlXCI6IG51bGxcbiAgfVxufTtcblxuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "mock-response.js"
+      ],
+      "names": [
+        "module",
+        "exports",
+        "logonInvalidToken",
+        "logonValidToken",
+        "new",
+        "noSuchCommand"
+      ],
+      "mappings": ";;AAAAA,OAAOC,OAAP,GAAiB;AACfC,qBAAmB;AACjB,YAAO,EADU;AAEjB,cAAS,CACP;AACE,iBAAU,wBADZ;AAEE,gBAAS,IAFX;AAGE,cAAO;AAHT,KADO,CAFQ;AASjB,gBAAW,EATM;AAUjB,YAAO;AACL,yBAAkB,yBADb;AAEL,8BAAuB,EAAC,OAAM,CAAP,EAAS,OAAM,CAAf;AAFlB,KAVU;AAcjB,iBAAY,GAdK;AAejB,mBAAc,IAfG,EADJ;AAiBfC,mBAAiB;AACf,YAAQ,EAAC,SAAQ,YAAT,EADO;AAEf,cAAS,EAFM;AAGf,gBAAW,EAHI;AAIf,YAAQ;AACN,yBAAkB,yBADZ;AAEN,8BAAuB,EAAC,OAAM,CAAP,EAAS,OAAM,CAAf;AAFjB,KAJO;AAQf,iBAAY,IARG;AASf,mBAAc;AATC,GAjBF;AA4BfC,OAAK;AACH,YAAQ;AACN,cAAQ;AACN,iBAAS,IADH;AAEN,sBAAc,CACZ,MADY,EAEZ,QAFY,EAGZ,SAHY,EAIZ,OAJY;AAFR;AADF,KADL;AAYH,cAAU,EAZP;AAaH,gBAAY,EAbT;AAcH,YAAQ;AACN,yBAAmB,yBADb;AAEN,8BAAwB;AACtB,eAAO,CADe;AAEtB,eAAO;AAFe;AAFlB,KAdL;AAqBH,iBAAa,IArBV;AAsBH,mBAAe;AAtBZ,GA5BU;AAoDfC,iBAAc;AACZ,YAAQ,EADI;AAEZ,cAAU,CACR;AACE,iBAAW,+BADb;AAEE,gBAAU,IAFZ;AAGE,cAAQ;AAHV,KADQ,CAFE;AASZ,gBAAY,EATA;AAUZ,YAAQ;AACN,yBAAmB,yBADb;AAEN,8BAAwB;AACtB,eAAO,CADe;AAEtB,eAAO;AAFe;AAFlB,KAVI;AAiBZ,iBAAa,GAjBD;AAkBZ,mBAAe;AAlBH;AApDC,CAAjB",
+      "file": "mock-response.js",
+      "sourceRoot": "/app/test",
+      "sourcesContent": [
+        "module.exports = {\n  logonInvalidToken: {\n    \"data\":{},\n    \"errors\":[\n      {\n        \"message\":\"Error 3: Not logged in\",\n        \"detail\":null,\n        \"code\":\"3\"\n      }\n    ],\n    \"warnings\":[],\n    \"meta\":{\n      \"jsdbInvalidator\":\"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\":{\"min\":5,\"max\":5}\n    },\n    \"errorCode\":400,\n    \"maxCacheAge\":null},\n  logonValidToken: {\n    \"data\": {\"token\":\"validtoken\"},\n    \"errors\":[],\n    \"warnings\":[],\n    \"meta\": {\n      \"jsdbInvalidator\":\"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\":{\"min\":5,\"max\":5}\n    },\n    \"errorCode\":null,\n    \"maxCacheAge\":null\n  },\n  new: {\n    \"data\": {\n      \"case\": {\n        \"ixBug\": 5518,\n        \"operations\": [\n          \"edit\",\n          \"assign\",\n          \"resolve\",\n          \"email\"\n        ]\n      }\n    },\n    \"errors\": [],\n    \"warnings\": [],\n    \"meta\": {\n      \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\": {\n        \"min\": 5,\n        \"max\": 5\n      }\n    },\n    \"errorCode\": null,\n    \"maxCacheAge\": null\n  },\n  noSuchCommand:{\n    \"data\": {},\n    \"errors\": [\n      {\n        \"message\": \"Error 27: No such API command\",\n        \"detail\": null,\n        \"code\": \"27\"\n      }\n    ],\n    \"warnings\": [],\n    \"meta\": {\n      \"jsdbInvalidator\": \"p0LLwfK3IkOEyisVD8iG1A2\",\n      \"clientVersionAllowed\": {\n        \"min\": 5,\n        \"max\": 5\n      }\n    },\n    \"errorCode\": 400,\n    \"maxCacheAge\": null\n  }\n};\n\n"
+      ]
+    },
+    "mtime": 1508252268980
+  }
+}

@@ -15,7 +15,6 @@ class Manuscript {
   }
 
   proxify() {
-    console.log('proxify')
     let handler = {
       get(target, property, receiver) {
         return function() {
@@ -32,13 +31,14 @@ class Manuscript {
   
   async isValid() {
     try {
-      let response =  await rp({
+      let response = await rp({
         method: 'POST', 
         url: this.url + "logon", 
         json: {token: this.token}
-      } );
+      });
+      
       return response.data.token === this.token;
-
+  
     } catch (err) {
       return false;
     }
@@ -56,6 +56,7 @@ class Manuscript {
       return body.data;
     } catch(ex) {
       let errors = ex.error && ex.error.errors || [];
+      console.log(errors);
       throw {errors: errors};
     }
   }

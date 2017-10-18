@@ -8,6 +8,8 @@ var app = express();
 
 
 
+
+
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
@@ -23,15 +25,15 @@ app.get("/", async function (req, res) {
   // console.log(valid)
   
   // manuscript.someFunction("apple", "banana", "pear")
-  
+//  res.render(fs.readFileSync('./README.md'));
+
   try {
-    let people = await manuscript.viewPerson();
+    let people = await manuscript.banana();
     res.send(people);
   } catch(error) {
     res.send(error);   
   }  
 }); 
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
